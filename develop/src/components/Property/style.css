@@ -25,6 +25,10 @@
     text-align: center;
 }
 
+.title {
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
+
 .titleContainer::after, .titleContainer::before {
     content: "";
     background: whitesmoke;
