@@ -1,5 +1,6 @@
-import player from "./player"
-import property from "./property"
+import Player from "./player";
+import Property from "./property";
+import Space from "./space";
 
 
 class GameManager{
