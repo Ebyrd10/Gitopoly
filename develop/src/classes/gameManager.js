@@ -2,10 +2,11 @@ import player from "./player"
 import property from "./property"
 
 
-class gameManager{
+class GameManager{
     turnArray = [];
     playerArray=[];
-    freeParkingValue=0;
+    //I refuse to allow this dumb houserule.
+    //freeParkingValue=0;
     propertyArray=[];
     currentPlayersTurn="";
     
@@ -23,10 +24,7 @@ class gameManager{
 
     playersTurn(currentPlayersTurn) {
 
-    }
-
-
-
-
-    
+    }    
 }
+
+export default GameManager;

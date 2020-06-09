@@ -10,3 +10,5 @@ class Space {
         alert("You've landed on " + this.name);
     }
 }
+
+export default Space;

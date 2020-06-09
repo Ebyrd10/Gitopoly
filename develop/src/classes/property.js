@@ -40,6 +40,8 @@ houses=0
     }
 }
 
+export default Property;
+
 
 
 // 40 spaces total 11X11 Grid- Only the perimeter

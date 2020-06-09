@@ -31,3 +31,5 @@ class Player{
         this.balance += amount;
     }
 }
+
+export default Player;
