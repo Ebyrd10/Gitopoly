@@ -1,16 +1,19 @@
 class Property extends Spaces {
-id = "";
-name = "";
-value = 0;
+id;
+name;
+value;
 rent = [];
-ownedBy = player1;
-mortgaged=False
-houses=0
+ownedBy;
+mortgaged;
+houses;
 
     constructor(id,name,value,rent){
         super(id, name);
         this.value=value;
         this.rent=rent;
+        this.ownedBy = null;
+        this.mortgaged = false;
+        this.houses = 0;
     }
 
 
