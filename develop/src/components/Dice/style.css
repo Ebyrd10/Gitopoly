@@ -57,7 +57,7 @@
 
 h2 span {
   position: relative;
-  animation: upDown 2.5s infinite;
+  animation: upDown 2.2s infinite;
   color: rgba(255, 215, 0, 0.836);
   font-size: 6rem;
 }
@@ -69,12 +69,12 @@ h2 span:first-child {
 
 h2 span:nth-child(3n) {
   color: rgb(218, 0, 0);
-  animation-delay: 0.15s;
+  animation-delay: 0.32s;
 }
 
 h2 span:nth-child(4n) {
   color: lawngreen;
-  animation-delay: 0.15s;
+  animation-delay: 0.12s;
 }
 
 h2 span:nth-child(5n) {
