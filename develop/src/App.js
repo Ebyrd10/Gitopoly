@@ -27,6 +27,8 @@ function App() {
         <PropertyCard />
         <PropertyCard />
         <PropertyCard /> 
+        <PropertyCard />
+        <PropertyCard />
         <div id="centerItem" > <Dice /> </div>
       </div>
     </>
