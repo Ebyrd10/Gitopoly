@@ -1,0 +1,76 @@
+#gameBoard {
+  height: 85vh;
+
+  display: grid;
+  gap: .1rem;
+
+  justify-items: center;
+
+  grid-template-areas: 
+    "a  b  c  d  e"
+    "p  z  z  z  f"
+    "o  z  z  z  g"
+    "n  z  z  z  h"
+    "m  l  k  j  i";
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    /* grid-template-rows: repeat(5); 
+    grid-template-columns: repeat(5); */
+    /* grid-template-columns: 240px 240px 240px 240px; */
+}
+
+
+#centerItem {grid-area: z;}
+
+#gameBoard:nth-child(1){
+    grid-area: a;
+}
+#gameBoard:nth-child(2){
+    grid-area: b;
+}
+#gameBoard:nth-child(3){
+    grid-area: c;
+}
+#gameBoard:nth-child(4){
+    grid-area: d;
+}
+#gameBoard:nth-child(5){
+    grid-area: e;
+}
+#gameBoard:nth-child(6){
+    grid-area: f;
+}
+#gameBoard:nth-child(7){
+    grid-area: g;
+}
+#gameBoard:nth-child(8){
+    grid-area: h;
+}
+#gameBoard:nth-child(9){
+    grid-area: i;
+}
+#gameBoard:nth-child(10){
+    grid-area: j;
+}
+#gameBoard:nth-child(11){
+    grid-area: k;
+}
+#gameBoard:nth-child(12){
+    grid-area: l;
+}
+#gameBoard:nth-child(13){
+    grid-area: m;
+}
+#gameBoard:nth-child(14){
+    grid-area: n;
+}
+#gameBoard:nth-child(15){
+    grid-area: o;
+}
+#gameBoard:nth-child(16){
+    grid-area: p;
+}
+#gameBoard:last-child{
+    grid-area: z;
+}
