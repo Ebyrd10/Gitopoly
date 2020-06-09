@@ -1,19 +1,14 @@
-
-
-
-
 class Property extends Spaces {
 id = "";
 name = "";
 value = 0;
-rent = [0,0,0,0,0];
+rent = [];
 ownedBy = player1;
 mortgaged=False
 houses=0
 
     constructor(id,name,value,rent){
-        this.id=id;
-        this.name=name;
+        super(id, name);
         this.value=value;
         this.rent=rent;
     }
@@ -49,6 +44,8 @@ houses=0
     }
 
 }
+
+export default Property;
 
 
 

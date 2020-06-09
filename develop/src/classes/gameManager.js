@@ -1,11 +1,13 @@
-import player from "./player"
-import property from "./property"
+import Player from "./player";
+import Property from "./property";
+import Space from "./space";
 
 
-class gameManager{
+class GameManager{
     turnArray = [];
     playerArray=[];
-    freeParkingValue=0;
+    //I refuse to allow this dumb houserule.
+    //freeParkingValue=0;
     propertyArray=[];
     currentPlayersTurn="";
     
@@ -23,8 +25,9 @@ class gameManager{
 
     playersTurn(currentPlayersTurn) {
 
-    }
 
+    }    
+    
     playerBankrupt(player){
         // GET THE INDEX OF THE BANKRUPT PLAYER FROM THE TURN ARRAY
         bankruptPlayerIndex=this.turnArray.indexOf(player);
@@ -44,3 +47,4 @@ class gameManager{
 
 
 }
+export default GameManager;
