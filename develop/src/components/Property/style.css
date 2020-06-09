@@ -1,4 +1,5 @@
 .card{
+    background-color: snow;
     width: 16rem;
     border: 3px solid black;
     margin: 5px;
@@ -17,7 +18,9 @@
 }
 
 .titleContainer {
+    margin-top: 2px;
     background-color: lightgray;
+    border-radius: 15px;
 }
 
 .title, .subTitle {
