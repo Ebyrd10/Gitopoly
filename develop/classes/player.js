@@ -11,4 +11,23 @@ class Player{
         this.doubleCounter = 0;
         this.heldCards = [];
     }
-} 
+
+    SpendMoney(target, amount){
+        if(amount > this.balance)
+        {
+            //Code for losing the game
+        }
+        else
+        {
+            this.balance -= amount;
+            if(target !== null)
+            {
+                target.GainMoney(amount);
+            }
+        }
+    }
+
+    GainMoney(amount){
+        this.balance += amount;
+    }
+}
