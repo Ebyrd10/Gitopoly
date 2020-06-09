@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./style.css";
 
-export class Property extends Component {
+export class PropertyCard extends Component {
   render() {
     return (
       <div className="card">
@@ -23,4 +23,4 @@ export class Property extends Component {
   }
 }
 
-export default Property;
+export default PropertyCard;
