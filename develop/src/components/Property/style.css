@@ -1,0 +1,43 @@
+.card{
+    width: 16rem;
+    border: 2px solid black;
+    margin: 5px;
+    justify-content: center;
+}
+.cardHeader {
+    width: 99%;
+    height: 3.5rem;
+    border-radius: 15px;
+}
+
+.titleContainer {
+    background-color: lightgray;
+}
+
+.title, .subTitle {
+    text-transform: uppercase;
+    justify-content: center;
+    text-align: center;
+}
+
+.titleContainer::after, .titleContainer::before {
+    content: "";
+    background: whitesmoke;
+    width: 95%;
+    height: .5rem;
+    border-radius: 25px;
+    display: inline-block;
+}
+
+.bodyList {
+    list-style-type: none;
+}
+
+/* .title::after, .title::before {
+    content: "";
+    background: black;
+    width: 65%;
+    height: 1px;
+    border-radius: 25px;
+    display: inline-block;
+} */
