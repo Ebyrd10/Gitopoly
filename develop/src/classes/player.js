@@ -10,6 +10,7 @@ class Player{
         this.jailCounter = 0;
         this.doubleCounter = 0;
         this.heldCards = [];
+        this.ownedProperties = [];
     }
 
     SpendMoney(target, amount){
@@ -29,6 +30,10 @@ class Player{
 
     GainMoney(amount){
         this.balance += amount;
+    }
+
+    AddProperty(property){
+        this.ownedProperties.push(property);
     }
 }
 

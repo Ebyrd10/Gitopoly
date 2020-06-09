@@ -3,6 +3,7 @@ id;
 name;
 value;
 rent = [];
+currentRent;
 ownedBy;
 mortgaged;
 houses;
@@ -11,14 +12,16 @@ houses;
         super(id, name);
         this.value=value;
         this.rent=rent;
+        this.currentRent = 0;
         this.ownedBy = null;
         this.mortgaged = false;
         this.houses = 0;
     }
 
 
-    purchasedProperty(playerName) { 
-        this.ownedBy=playerName;
+    setOwner(player) { 
+        this.ownedBy=player;
+        player.AddProperty(this); //This may or may not work. If it doesn't, we probably need to import Player into this class.
     }
 
     mortgageProperty() {
@@ -30,8 +33,9 @@ houses;
         this.mortgaged=False;
     }
 
-    addHouses(number) { 
-        this.houses+=number;
+    addHouse() { 
+        this.houses+=1;
+        this.currentRent = this.rent[this.houses];
     }
 
     getRent() {
