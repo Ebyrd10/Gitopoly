@@ -25,8 +25,22 @@ class gameManager{
 
     }
 
+    playerBankrupt(player){
+        // GET THE INDEX OF THE BANKRUPT PLAYER FROM THE TURN ARRAY
+        bankruptPlayerIndex=this.turnArray.indexOf(player);
+        // SLICE THEM OUT OF THE ARRAY
+        this.turnArray=this.turnArray.slice(0, bankruptPlayerIndex-1).concat(this.turnArray.slice(bankruptPlayerIndex, this.turnArray.length))
+    }
 
-
-
+    canBuy(player,amount) {
+        if(player.balance<amount){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
     
+
+
 }

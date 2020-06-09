@@ -1,4 +1,8 @@
-class Property {
+
+
+
+
+class Property extends Spaces {
 id = "";
 name = "";
 value = 0;
@@ -39,6 +43,11 @@ houses=0
     getValue() {
         return this.value;
     }
+
+    checkOwner() {
+        return this.ownedBy;
+    }
+
 }
 
 
