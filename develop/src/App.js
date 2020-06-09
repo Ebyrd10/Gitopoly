@@ -1,36 +1,32 @@
 import React from 'react';
 import Dice from './components/Dice/index';
-import GameManager from "./classes/gameManager";
-import Player from "./classes/player";
-import Space from "./classes/space";
-import Property from "./classes/property";
-import Property from "./components/Property";
+// import GameManager from "./classes/gameManager";
+// import Player from "./classes/player";
+// import Space from "./classes/space";
+// import Property from "./classes/property";
+import PropertyCard from "./components/Property";
 import './style.css'
 
 // Calculator component
 function App() {
 
-  state= {
-    
-  }
-
   return (
     <>
       <div id="gameBoard">
-        <Property />
-        <Property />
-        <Property />
-        <Property />
-        <Property />
-        <Property />
-        <Property />
-        <Property />
-        <Property />
-        <Property />
-        <Property />
-        <Property />
-        <Property />
-        <Property /> 
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard />
+        <PropertyCard /> 
         <div id="centerItem" > <Dice /> </div>
       </div>
     </>
