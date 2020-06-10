@@ -1,5 +1,6 @@
 import React from 'react';
 import Dice from './components/Dice/index';
+import PlayerIcon from './components/PlayerIcon'
 // import GameManager from "./classes/gameManager";
 // import Player from "./classes/player";
 // import Space from "./classes/space";
@@ -29,7 +30,7 @@ function App() {
         <PropertyCard /> 
         <PropertyCard />
         <PropertyCard />
-        <div id="centerItem" > <Dice /> </div>
+        <div id="centerItem" > <Dice /> <PlayerIcon/> </div>
       </div>
     </>
   );
