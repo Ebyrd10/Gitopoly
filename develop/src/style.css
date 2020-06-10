@@ -1,13 +1,7 @@
 body {
-    height: 99vh;
-    background-image: linear-gradient( 270deg,
-        white,
-        darkGrey,
-        red,
-        rgb(185, 19, 19),
-        rgb(61, 58, 58),
-        black
-    )
+  height: 99vh;
+  background: radial-gradient(ellipse at bottom, white 1% , rgb(32, 139, 0) 100%, darkGrey 10%
+  );
 }
 
 #gameBoard {
@@ -32,6 +26,7 @@ body {
   grid-template-columns: 200px 200px 200px 200px 200px;
   /* grid-template-columns: 50px 50px 50px 50px 50px; */
   justify-content: center;
+
 }
 
 #centerItem {
