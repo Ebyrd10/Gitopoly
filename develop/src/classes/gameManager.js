@@ -5,7 +5,7 @@ import Space from "./space";
 
 class GameManager{
     turnArray = [];
-    playerArray=[];
+    playersArray=[];
     //I refuse to allow this dumb houserule.
     //freeParkingValue=0;
     propertyArray=[
@@ -15,7 +15,7 @@ class GameManager{
             Color
             Owned By
             Mortgaged True or False
-
+            
         },
         {
             id:0
@@ -34,8 +34,8 @@ class GameManager{
             house: 50
         },
         {
-            id:2
-,            name: "Community Chest",
+            id:2,            
+            name: "Community Chest",
             type: "community-chest"
         },
         {
@@ -53,8 +53,8 @@ class GameManager{
             name: "Income Tax",
             type: "tax",
             cost: 200
-      },
-      {
+        },
+        {
             id:5,            
             name: "Reading Railroad",
             type: "railroad",
@@ -335,7 +335,7 @@ class GameManager{
             type: "tax",
             cost: 100
         }
-       {
+        {
             id:39,
             name: "Boardwalk",
             type: "property",
@@ -346,14 +346,14 @@ class GameManager{
             house: 200,
         }
     ]
-
-
-
-
-
+    
+    
+    
+    
+    
     currentPlayersTurn="";
     
-
+    // TURN METHODS
     nextTurn() { 
         // GET THE CURRENT PLAYERS NAME
         let currentPlayer=this.currentPlayer;
@@ -364,10 +364,10 @@ class GameManager{
         // SET THE CURRENT PLAYER TO THE NEXT PLAYER
         this.currentPlayersTurn=nextPlayer;
     }
-
+    
     playersTurn(currentPlayersTurn) {
-
-
+        
+        
     }    
     
     playerBankrupt(player){
@@ -376,7 +376,7 @@ class GameManager{
         // SLICE THEM OUT OF THE ARRAY
         this.turnArray=this.turnArray.slice(0, bankruptPlayerIndex-1).concat(this.turnArray.slice(bankruptPlayerIndex, this.turnArray.length))
     }
-
+    
     canBuy(player,amount) {
         if(player.balance<amount){
             return false;
@@ -385,9 +385,82 @@ class GameManager{
             return true;
         }
     }
+    // METHOD CALLED AT BEGINNING TO CREATE PLAYERS AND ADD THEM TO STATE
+    createPlayer(name, playerColor,playerIcon){
+        player = {
+            name : name,
+            position : startingPosition,
+            color : playerColor,
+            icon : playerIcon,
+            balance : 1500,
+            inJail : false,
+            jailCounter : 0,
+            doubleCounter : 0,
+            ownedProperties : [],
+        }
+        
+    }
     
+    
+    
+    addToPlayerBalance(player,amount){
+        player.balance += amount;
+    }
+    
+    subtractFromPlayerBalance(player,amount){
+        player.balance -= amount;
+    }
     
 
 
+    // 
+    playerBuysProperty(player,property){
+        // SET THE PLAYERS STATE TO INCLUDE THE OWNED PROPERTY IN THE ARRAY
+        player.ownedProperties.push(property);
+
+        // SET THE PROPERTY'S OWNER
+        property.ownedBy = player;
+    }
+    
+    // PLAYER.INJAIL IS TRUE AND PLAYER POSITION MOVED
+    playerGoesToJail(player){
+        player.inJail = true;
+        player.position = jailIndex;
+    }
+    
+    addHouseToProperty()
+
+
+
+
+    mortgageProperty(property) {
+        property.mortgaged=True;
+    }
+
+    
+    unmortgageProperty(property) {
+        property.mortgaged=False;
+    }
+
+    addHousesToProperty(number) { 
+        this.houses+=number;
+    }
+
+    getRent() {
+        return rent[this.houses];
+    }
+
+    getPropertyValue(property) {
+        return property.value;
+    }
+
+    checkOwner() {
+        return property.ownedBy;
+    }
 }
 export default GameManager;
+
+
+
+
+
