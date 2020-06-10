@@ -10,6 +10,7 @@ class Player{
         this.jailCounter = 0;
         this.doubleCounter = 0;
         this.heldCards = [];
+        this.ownedProperties = [];
     }
 
     
@@ -18,9 +19,10 @@ class Player{
         this.balance += amount;
     }
 
-    subtractFromBalance(amount){
-        this.balance -= amount;
+    AddProperty(property){
+        this.ownedProperties.push(property);
     }
+
 }
 
 export default Player;
