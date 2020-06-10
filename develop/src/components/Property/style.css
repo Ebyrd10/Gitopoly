@@ -63,12 +63,3 @@
 .bodyList {
     list-style-type: none;
 }
-
-/* .title::after, .title::before {
-    content: "";
-    background: black;
-    width: 65%;
-    height: 1px;
-    border-radius: 25px;
-    display: inline-block;
-} */
