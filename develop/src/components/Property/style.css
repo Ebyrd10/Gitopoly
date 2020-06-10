@@ -64,11 +64,18 @@
     list-style-type: none;
 }
 
-/* .title::after, .title::before {
-    content: "";
-    background: black;
-    width: 65%;
-    height: 1px;
-    border-radius: 25px;
-    display: inline-block;
-} */
+
+.cornerCard{
+    border: 2px solid blue;
+    width: 18rem;
+    height: 18rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cornerCardInterior{
+    font-family: 'Montserrat Subrayada', sans-serif;
+    font-size: larger;
+}

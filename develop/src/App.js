@@ -31,6 +31,7 @@ function App() {
         <PropertyCard />
         <PropertyCard />
         <div id="centerItem" > <Dice /> <PlayerIcon/> </div>
+        
       </div>
     </>
   );

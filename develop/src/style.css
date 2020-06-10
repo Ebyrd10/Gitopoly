@@ -14,12 +14,19 @@ body {
 
   /* justify-items: center; */
 
-  grid-template-areas:
+  /* grid-template-areas:
     "a  b  c  d  e"
     "p  z  z  z  f"
     "o  z  z  z  g"
     "n  z  z  z  h"
-    "m  l  k  j  i";
+    "m  l  k  j  i"; */
+    grid-template-areas:
+    "a  b  c  d  e  fx  gx"
+    "p  z  z  z  z   z   f"
+    "o  z  z  z  z   z   g"
+    "n  z  z  z  z   z   h"
+    "nx  z  z  z  z   z  hx"
+    "m  l  k  j  i  ix  jx";
 
   /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -42,7 +49,7 @@ body {
   height: 100%;
 }
 
-#gameBoard:nth-child(1) {
+/* #gameBoard:nth-child(1) {
   grid-area: a;
 }
 #gameBoard:nth-child(2) {
@@ -92,4 +99,4 @@ body {
 }
 #gameBoard:last-child {
   grid-area: z;
-}
+} */
