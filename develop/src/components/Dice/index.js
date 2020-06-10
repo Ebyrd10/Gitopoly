@@ -14,7 +14,7 @@ export class Dice extends Component {
     die2.innerHTML = d2;
     // status.innerHTML = 'You rolled ' + diceTotal + '.';
     status.innerHTML = `<span>${diceTotal}</span>`;
-    if (d1 == d2) {
+    if (d1 === d2) {
       // status.innerHTML += ' DOUBLES! You get a free turn!!';
       // status.innerHTML += ' Doubles, Free Turn';
       status.innerHTML +=
@@ -45,15 +45,7 @@ export class Dice extends Component {
           <div id="dieBtn" onClick={this.rollDice}>
             <i className="fas fa-dice-six fa-6x"></i>
           </div>
-          {/* <br></br>
-        <hr></hr>
-        <div>
-          <ul>
-            <li id="position1" value="true">
-              player here{' '}
-            </li>
-          </ul>
-        </div> */}
+          
           <h2 id="status"></h2>
         </div>
       </div>
