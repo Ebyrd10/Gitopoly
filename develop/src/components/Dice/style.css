@@ -1,11 +1,84 @@
-div.dice {
-  
-  float:left;
+#diceContainer {
+  /* justify-content: center;
+	align-content: center; */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#numberSlotsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dice {
+  /* float:left;
 	width:32px;
 	background:#F5F5F5;
 	border:#999 1px solid;
 	padding:10px;
 	font-size:24px;
 	text-align:center;
-	margin:5px;
+	margin:5px; */
+
+  background: #f5f5f5;
+  border: #999 1px solid;
+  outline: 1px solid black;
+  padding: 2px 5px 2px 5px;
+  font-size: 24px;
+  text-align: center;
+  margin: 5px;
+  width: 4rem;
+  height: 4rem;
+}
+
+#dieBtn {
+  margin: 2px;
+}
+
+#status {
+  text-transform: uppercase;
+  width: 25rem;
+  text-align: center;
+}
+
+@keyframes upDown {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -15px;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+h2 span {
+  position: relative;
+  animation: upDown 2.2s infinite;
+  color: rgba(255, 215, 0, 0.836);
+  font-size: 6rem;
+}
+
+h2 span:first-child {
+  color: black;
+  
+}
+
+h2 span:nth-child(3n) {
+  color: rgb(218, 0, 0);
+  animation-delay: 0.32s;
+}
+
+h2 span:nth-child(4n) {
+  color: lawngreen;
+  animation-delay: 0.12s;
+}
+
+h2 span:nth-child(5n) {
+  color: rgb(233, 64, 233);
+  animation-delay: 0.15s;
 }

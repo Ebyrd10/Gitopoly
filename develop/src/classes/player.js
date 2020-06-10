@@ -13,28 +13,16 @@ class Player{
         this.ownedProperties = [];
     }
 
-    SpendMoney(target, amount){
-        if(amount > this.balance)
-        {
-            //Code for losing the game
-        }
-        else
-        {
-            this.balance -= amount;
-            if(target !== null)
-            {
-                target.GainMoney(amount);
-            }
-        }
-    }
+    
 
-    GainMoney(amount){
+    addToBalance(amount){
         this.balance += amount;
     }
 
     AddProperty(property){
         this.ownedProperties.push(property);
     }
+
 }
 
 export default Player;

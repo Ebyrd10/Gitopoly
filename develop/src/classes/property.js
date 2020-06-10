@@ -18,6 +18,9 @@ houses;
         this.houses = 0;
     }
 
+    onLand(){
+        //Not sure how to arrange this to feed back into game Manager
+    }
 
     setOwner(player) { 
         this.ownedBy=player;
