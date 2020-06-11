@@ -27,7 +27,15 @@ export class PlayerIcon extends Component {
 
   render() {
     return (
-      <div id="iconSearchContainer">
+      <div id="">
+        <div>
+          {this.state.results.slice(0, 1).map((result) => (
+            <div key={result}>
+              <img alt="dog" src={result} id="picture" />
+            </div>
+          ))}
+        </div>
+        <br/>
         <input
           onChange={this.handleInputChange}
           value={this.state.search}
@@ -35,7 +43,7 @@ export class PlayerIcon extends Component {
           list="breeds"
           type="text"
           className=""
-          placeholder="Icon"
+          placeholder="Find Icon"
         />
 
         <datalist id="breeds">
@@ -46,15 +54,10 @@ export class PlayerIcon extends Component {
         <button
           type="submit"
           onClick={this.handleFormSubmit}
-          // className="bten btn-success"
+          
         >
-          {/* Submit */}
+          Submit
         </button>
-          {this.state.results.slice(0, 1).map((result) => (
-            <div key={result}>
-              <img alt="dog" src={result} id="picture"/>
-            </div>
-          ))}
       </div>
     );
   }

@@ -8,9 +8,10 @@ export class PlayerStatusCard extends Component {
         return (
             <div className="playerStatusCardContainer">
                 {/* Player Icon */}
-                <div className="playerIcon"></div>
+                {/* <div className="playerIcon"></div> */}
                 {/* Select New Icon Bar */}
                 < PlayerIcon/>
+                <br/>
                 <div className="playerNum"> Player  </div>
                 {/* Name */}
                 <div className="playerName cardList"> Name: </div>
