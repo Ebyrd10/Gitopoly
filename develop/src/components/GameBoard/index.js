@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropertyCard from "../Property";
 import PlayerStatusScreen from "../PlayerStatusScreen"
 import Dice from '../Dice/';
-import PlayerIcon from '../PlayerIcon'
+// import PlayerIcon from '../PlayerIcon'
 import './style.css'
 
 export class GameBoard extends Component {
@@ -34,7 +34,7 @@ export class GameBoard extends Component {
         <PropertyCard />
         <div id="centerItem">
          <Dice /> 
-         <PlayerIcon />
+         {/* <PlayerIcon /> */}
         </div>
       </div>
     );
