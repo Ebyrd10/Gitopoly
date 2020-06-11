@@ -52,20 +52,30 @@ export class GameBoard extends Component {
                 cost: 200,
                 group: 'placeholdergroup'[9, 1, 4]
             },
-            {
-                id:6,            
-                name: "Oriental Avenue",
-                type: "property",
-                cost: 100,
-                color: "#aae0fa",
-                rent: [6,30,90,270,400,550],
-                group: 'placeholdergroup',
-                house: 50
-            },
+            // {
+            //     id:6,            
+            //     name: "Oriental Avenue",
+            //     type: "property",
+            //     cost: 100,
+            //     color: "#aae0fa",
+            //     rent: [6,30,90,270,400,550],
+            //     group: 'placeholdergroup',
+            //     house: 50
+            // },
             {
                 id:7,            
                 name: "Chance",
                 type: "chance"
+            },
+            {
+                id:21,
+                name: "Kentucky Avenue",
+                type: "property",
+                cost: 220,
+                color: "#ed1b24",
+                rent: [18,90,250,700,875,1050],
+                group: 'placeholdergroup',
+                house: 150
             },
             {
                 id:8,            
@@ -94,16 +104,6 @@ export class GameBoard extends Component {
                 "corner": true
             },
             {
-                id:11,
-                name: "St. Charles Place",
-                type: "property",
-                cost: 140,
-                color: "#d93a96",
-                rent: [10,50,150,450,625,750],
-                group: 'placeholdergroup',
-                house: 100
-            },
-            {
                 id:12,
                 name: "Electric Company",
                 type: "utility",
@@ -111,12 +111,12 @@ export class GameBoard extends Component {
                 group: 'placeholdergroup'[10, 1, 2]
             },
             {
-                id:13,
-                name: "States Avenue",
+                id:18,
+                name: "Tennessee Avenue",
                 type: "property",
-                cost: 140,
-                color: "#d93a96",
-                rent: [10,50,150,450,625,750],
+                cost: 180,
+                color: "#f7941d",
+                rent: [14,70,200,550,750,950],
                 group: 'placeholdergroup',
                 house: 100
             },
@@ -153,12 +153,12 @@ export class GameBoard extends Component {
                 type: "community-chest"
             },
             {
-                id:18,
-                name: "Tennessee Avenue",
+                id:13,
+                name: "States Avenue",
                 type: "property",
-                cost: 180,
-                color: "#f7941d",
-                rent: [14,70,200,550,750,950],
+                cost: 140,
+                color: "#d93a96",
+                rent: [10,50,150,450,625,750],
                 group: 'placeholdergroup',
                 house: 100
             },
@@ -173,20 +173,14 @@ export class GameBoard extends Component {
                 house: 100
             },
             {
-                id:20,
-                name: "Free Parking",
-                type: "cornerCard",
-                "corner": true
-            },
-            {
-                id:21,
-                name: "Kentucky Avenue",
+                id:11,
+                name: "St. Charles Place",
                 type: "property",
-                cost: 220,
-                color: "#ed1b24",
-                rent: [18,90,250,700,875,1050],
+                cost: 140,
+                color: "#d93a96",
+                rent: [10,50,150,450,625,750],
                 group: 'placeholdergroup',
-                house: 150
+                house: 100
             },
             {
                 id:22,
@@ -219,6 +213,12 @@ export class GameBoard extends Component {
                 type: "railroad",
                 cost: 200,
                 group: 'placeholdergroup'[9, 3, 4]
+            },
+            {
+                id:30,
+                name: "Go To Jail",
+                type: "cornerCard",
+                "corner": true
             },
             {
                 id:26,
@@ -257,47 +257,41 @@ export class GameBoard extends Component {
                 group: 'placeholdergroup',
                 house: 150
             },
-            {
-                id:30,
-                name: "Go To Jail",
-                type: "cornerCard",
-                "corner": true
-            },
-            {
-                id:31,
-                name: "Pacific Avenue",
-                type: "property",
-                cost: 300,
-                color: "#1fb25a",
-                rent: [26,130,390,900,1100,1275],
-                group: 'placeholdergroup',
-                house: 200
-            },
-            {
-                id:32,
-                name: "North Carolina Avenue",
-                type: "property",
-                cost: 300,
-                color: "#1fb25a",
-                rent: [26,130,390,900,1100,1275],
-                group: 'placeholdergroup',
-                house: 200
-            },
+            // {
+            //     id:31,
+            //     name: "Pacific Avenue",
+            //     type: "property",
+            //     cost: 300,
+            //     color: "#1fb25a",
+            //     rent: [26,130,390,900,1100,1275],
+            //     group: 'placeholdergroup',
+            //     house: 200
+            // },
+            // {
+            //     id:32,
+            //     name: "North Carolina Avenue",
+            //     type: "property",
+            //     cost: 300,
+            //     color: "#1fb25a",
+            //     rent: [26,130,390,900,1100,1275],
+            //     group: 'placeholdergroup',
+            //     house: 200
+            // },
             {
                 id:33,
                 name: "Community Chest",
                 type: "community-chest"
             },
-            {
-                id:34,
-                name: "Pennsylvania Avenue",
-                type: "property",
-                cost: 320,
-                color: "#1fb25a",
-                "rent": [28,150,450,1000,1200,1400],
-                group: 'placeholdergroup',
-                house: 200
-            },
+            // {
+            //     id:34,
+            //     name: "Pennsylvania Avenue",
+            //     type: "property",
+            //     cost: 320,
+            //     color: "#1fb25a",
+            //     "rent": [28,150,450,1000,1200,1400],
+            //     group: 'placeholdergroup',
+            //     house: 200
+            // },
             {
                 id:35,
                 name: "Shortline",
@@ -335,6 +329,12 @@ export class GameBoard extends Component {
                 "rent": [50,200,600,1400,1700,2000],
                 "group": [8, 2, 2],
                 house: 200,
+            },
+            {
+                id:20,
+                name: "Free Parking",
+                type: "cornerCard",
+                "corner": true
             }
         ]
     }
@@ -344,29 +344,9 @@ export class GameBoard extends Component {
         <PlayerStatusScreen />
         {this.state.propertyArray.map((property, index) => 
         // if ((property.type === 'property')||(property.type === 'cornerCard'))
-        <PropertyCard key={index} id={index} cardType = {property.type} group = {property.color} name = {property.name} value = {property.value} ownedBy = {property.ownedBy} mortaged = {property.mortaged}/>)}
-        {/* <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard />
-        <PropertyCard /> */}
+        {if ((property.type === 'property')||(property.type === 'cornerCard'))
+        return <PropertyCard key={index} id={index} cardType = {property.type} group = {property.color} name = {property.name} value = {property.cost} ownedBy = {property.ownedBy} mortaged = {property.mortaged}/>
+        })}
         <div id="centerItem">
          <Dice /> 
          {/* <PlayerIcon /> */}
