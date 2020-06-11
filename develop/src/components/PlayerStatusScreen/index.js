@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PlayerStatusCard from './PlayerStatusCard'
 import './style.css'
 
 export class PlayerStatusScreen extends Component {
@@ -15,10 +16,10 @@ export class PlayerStatusScreen extends Component {
             <>
             <div onClick={this.onClick} id='openBtn'>Status</div>
             <div className="playerStatusContainer">
-                <div> Card 1</div>
-                <div> Card 2</div>
-                <div> Card 3</div>
-                <div> Card 4</div>
+                < PlayerStatusCard />
+                < PlayerStatusCard />
+                < PlayerStatusCard />
+                < PlayerStatusCard />
             </div>
             </>
         )

@@ -12,7 +12,6 @@ export class PlayerIcon extends Component {
     API.getBaseBreedsList().then((res) =>
       this.setState({ breeds: res.data.message })
     );
-    console.log(this.state.breeds);
   };
 
   handleInputChange = (event) => {
@@ -28,7 +27,7 @@ export class PlayerIcon extends Component {
 
   render() {
     return (
-      <div>
+      <div id="iconSearchContainer">
         <input
           onChange={this.handleInputChange}
           value={this.state.search}
@@ -36,7 +35,7 @@ export class PlayerIcon extends Component {
           list="breeds"
           type="text"
           className=""
-          placeholder="Choose Icon"
+          placeholder="Icon"
         />
 
         <datalist id="breeds">
@@ -47,17 +46,15 @@ export class PlayerIcon extends Component {
         <button
           type="submit"
           onClick={this.handleFormSubmit}
-          className="bten btn-success"
+          // className="bten btn-success"
         >
-          Submit
+          {/* Submit */}
         </button>
-        <ul>
           {this.state.results.slice(0, 1).map((result) => (
-            <li key={result}>
+            <div key={result}>
               <img alt="dog" src={result} id="picture"/>
-            </li>
+            </div>
           ))}
-        </ul>
       </div>
     );
   }

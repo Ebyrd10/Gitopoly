@@ -1,0 +1,29 @@
+.playerIcon {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-color: gray;
+}
+
+.playerStatusCardContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cardList::after {
+    content: '';
+    background-color: silver;
+    display: block;
+    height: 5px;
+    width: 150px;
+}
+
+.playerNum {
+    text-align: center;
+}
+
+.cardList {
+    padding: 10px;
+}

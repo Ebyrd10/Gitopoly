@@ -173,15 +173,7 @@ class GameManager{
     }
 
     propertyArray=[
-        /*
-        {
-            Name
-            Value
-            Color
-            Owned By
-            Mortgaged True or False
-            
-        },
+       
         {
             id:0
             name: "Go",
