@@ -12,7 +12,6 @@ export class PlayerIcon extends Component {
     API.getBaseBreedsList().then((res) =>
       this.setState({ breeds: res.data.message })
     );
-    console.log(this.state.breeds);
   };
 
   handleInputChange = (event) => {
@@ -51,13 +50,11 @@ export class PlayerIcon extends Component {
         >
           {/* Submit */}
         </button>
-        <ul>
           {this.state.results.slice(0, 1).map((result) => (
-            <li key={result}>
+            <div key={result}>
               <img alt="dog" src={result} id="picture"/>
-            </li>
+            </div>
           ))}
-        </ul>
       </div>
     );
   }
