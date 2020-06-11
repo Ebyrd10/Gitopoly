@@ -52,19 +52,24 @@
 }
 .titleContainer::before {
     width: 85%;
-    transform: translateX(10%);
+    /* transform: translateX(10%); */
 }
 .titleContainer::after {
     margin-top: -5px;
     width: 45%;
-    transform: translateX(60%);
+    /* transform: translateX(60%); */
+}
+
+.cardBody {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .bodyList {
-    list-style-type: none;
+    margin: 5px;
 }
-
-
 .cornerCard{
     border: 2px solid blue;
     width: 18rem;
