@@ -7,10 +7,13 @@ import React from 'react';
 import GameBoard from './components/GameBoard'
 import './style.css'
 
+import NavBar from './components/NavBar'
+
 function App() {
 
   return (
     <>
+      <NavBar/>
       <GameBoard />
     </>
   );
