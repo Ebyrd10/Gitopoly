@@ -14,14 +14,14 @@ class GameManager{
     //Display the player color accordingly
 
     propertyArray=[
-        {
-            Name
-            Value
-            Color
-            Owned By
-            Mortgaged True or False
+        // {
+        //     Name
+        //     Value
+        //     Color
+        //     Owned By
+        //     Mortgaged True or False
             
-        },
+        // },
         {
             id:0
             name: "Go",
@@ -339,7 +339,7 @@ class GameManager{
             name: "Luxury Tax",
             type: "tax",
             cost: 100
-        }
+        },
         {
             id:39,
             name: "Boardwalk",
