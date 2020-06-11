@@ -12,11 +12,11 @@ export class PropertyCard extends Component {
             <div className="subTitle"> {this.props.name ? this.props.name : 'boardwalk'}</div>
           </div>
           <div className="cardBody">
-              <ul className ="bodyList">
-                  <li> Value: ${this.props.value ? this.props.value : 100} </li>
-                  <li>Owned By:{this.props.ownedBy ? this.props.ownedBy : ''}</li>
-                  <li>Mortaged:{this.props.mortaged ? 'Yes' : 'No'}</li>
-              </ul>
+              <div className ="bodyList">
+                  <div> Value: ${this.props.value ? this.props.value : 100} </div>
+                  <div>Owned By:{this.props.ownedBy ? this.props.ownedBy : ''}</div>
+                  <div>Mortaged:{this.props.mortaged ? 'Yes' : 'No'}</div>
+              </div>
           </div>
         </div>
     )}
