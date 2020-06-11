@@ -5,12 +5,14 @@ import Space from "./space";
 
 class GameManager{
     turnArray = [];
-    playerArray=[];
+
+     playerArray=[];
     freeParkingValue=0;
 
     currentTurn; //This holds the player whose turn it is
     currentPlayerInput;//This holds the player who is currently being prompted. It will usually be the same as currentTurn.
     //Display the player color accordingly
+
     propertyArray=[
         {
             Name
@@ -18,7 +20,7 @@ class GameManager{
             Color
             Owned By
             Mortgaged True or False
-
+            
         },
         {
             id:0
@@ -37,8 +39,8 @@ class GameManager{
             house: 50
         },
         {
-            id:2
-,            name: "Community Chest",
+            id:2,            
+            name: "Community Chest",
             type: "community-chest"
         },
         {
@@ -56,8 +58,8 @@ class GameManager{
             name: "Income Tax",
             type: "tax",
             cost: 200
-      },
-      {
+        },
+        {
             id:5,            
             name: "Reading Railroad",
             type: "railroad",
@@ -338,7 +340,7 @@ class GameManager{
             type: "tax",
             cost: 100
         }
-       {
+        {
             id:39,
             name: "Boardwalk",
             type: "property",
@@ -349,14 +351,14 @@ class GameManager{
             house: 200,
         }
     ]
-
-
-
-
-
+    
+    
+    
+    
+    
     currentPlayersTurn="";
     
-
+    // TURN METHODS
     nextTurn() { 
         // GET THE CURRENT PLAYERS NAME
         let currentPlayer=this.currentPlayer;
@@ -367,6 +369,9 @@ class GameManager{
         // SET THE CURRENT PLAYER TO THE NEXT PLAYER
         this.currentPlayersTurn=nextPlayer;
     }
+
+   // playersTurn(currentPlayersTurn) {
+   //}    
 
     MovePlayerByDistance(player, distance) {
         //This is written under the assumpation that the ids of spaces are their order around the board, starting at zero and increasing.
@@ -391,6 +396,7 @@ class GameManager{
     {
 
     }
+
     
     rollDice() {
         let dice = [];
@@ -405,7 +411,7 @@ class GameManager{
         // SLICE THEM OUT OF THE ARRAY
         this.turnArray=this.turnArray.slice(0, bankruptPlayerIndex-1).concat(this.turnArray.slice(bankruptPlayerIndex, this.turnArray.length))
     }
-
+    
     canBuy(player,amount) {
         if(player.balance<amount){
             return false;
@@ -414,9 +420,82 @@ class GameManager{
             return true;
         }
     }
+    // METHOD CALLED AT BEGINNING TO CREATE PLAYERS AND ADD THEM TO STATE
+    createPlayer(name, playerColor,playerIcon){
+        player = {
+            name : name,
+            position : startingPosition,
+            color : playerColor,
+            icon : playerIcon,
+            balance : 1500,
+            inJail : false,
+            jailCounter : 0,
+            doubleCounter : 0,
+            ownedProperties : [],
+        }
+        
+    }
     
+    
+    
+    addToPlayerBalance(player,amount){
+        player.balance += amount;
+    }
+    
+    subtractFromPlayerBalance(player,amount){
+        player.balance -= amount;
+    }
     
 
 
+    // 
+    playerBuysProperty(player,property){
+        // SET THE PLAYERS STATE TO INCLUDE THE OWNED PROPERTY IN THE ARRAY
+        player.ownedProperties.push(property);
+
+        // SET THE PROPERTY'S OWNER
+        property.ownedBy = player;
+    }
+    
+    // PLAYER.INJAIL IS TRUE AND PLAYER POSITION MOVED
+    playerGoesToJail(player){
+        player.inJail = true;
+        player.position = jailIndex;
+    }
+    
+    addHouseToProperty()
+
+
+
+
+    mortgageProperty(property) {
+        property.mortgaged=True;
+    }
+
+    
+    unmortgageProperty(property) {
+        property.mortgaged=False;
+    }
+
+    addHousesToProperty(number) { 
+        this.houses+=number;
+    }
+
+    getRent() {
+        return rent[this.houses];
+    }
+
+    getPropertyValue(property) {
+        return property.value;
+    }
+
+    checkOwner() {
+        return property.ownedBy;
+    }
 }
 export default GameManager;
+
+
+
+
+
