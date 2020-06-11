@@ -5,9 +5,14 @@ import Space from "./space";
 
 class GameManager{
     turnArray = [];
-    playersArray=[];
-    //I refuse to allow this dumb houserule.
-    //freeParkingValue=0;
+
+     playerArray=[];
+    freeParkingValue=0;
+
+    currentTurn; //This holds the player whose turn it is
+    currentPlayerInput;//This holds the player who is currently being prompted. It will usually be the same as currentTurn.
+    //Display the player color accordingly
+
     propertyArray=[
         {
             Name
@@ -364,12 +369,42 @@ class GameManager{
         // SET THE CURRENT PLAYER TO THE NEXT PLAYER
         this.currentPlayersTurn=nextPlayer;
     }
+
+   // playersTurn(currentPlayersTurn) {
+   //}    
+
+    MovePlayerByDistance(player, distance) {
+        //This is written under the assumpation that the ids of spaces are their order around the board, starting at zero and increasing.
+        //If this is changed, the code to find the destination will need to be adjusted
+        let currentPos = player.position.id;
+        let newPos = currentPos + distance;
+        if(newPos > this.propertyArray.length)
+        {
+            newPos = newPos - this.playerArray.length;
+        }
+        let newSpace = this.propertyArray.find(id===newPos);
+        player.position = newSpace;
+        this.ExecuteSpace(player,space);
+    }
+
+    MovePlayerToSpace(player, space) {
+        player.position = space;
+        this.ExecuteSpace(player,space);
+    }
+
+    ExecuteSpace(player,space)
+    {
+
+    }
+
     
-    playersTurn(currentPlayersTurn) {
-        
-        
-    }    
-    
+    rollDice() {
+        let dice = [];
+        dice[0] = Math.floor(Math.random() * 6) + 1;
+        dice[1] = Math.floor(Math.random() * 6) + 1;
+        return dice;
+    }
+
     playerBankrupt(player){
         // GET THE INDEX OF THE BANKRUPT PLAYER FROM THE TURN ARRAY
         bankruptPlayerIndex=this.turnArray.indexOf(player);
