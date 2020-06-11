@@ -25,7 +25,7 @@ export class PropertyCard extends Component {
       <div className="card cornerCard">
         <div className="cornerCardInterior">
         {this.props.name ? this.props.name : 'Corner Card'}
-        {/* <input type="text" value={this.props.name ? this.props.name : 'Corner Card'} name='cardTitle' style={{border: 'none', background: 'transparent'}}/> */}
+        {/* <input type="text" value={this.props.name ? this.props.name : 'Corner Card'} onChange= {this.OnTitleChange} name='cardTitle' style={{border: 'none', background: 'transparent'}}/> */}
         </div>
         <div className="cornerCardIconContainer">
             {this.props.name === 'Jail'? <i class="fas fa-trailer fa-4x"></i> : '' }
