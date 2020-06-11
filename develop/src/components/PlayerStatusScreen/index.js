@@ -6,7 +6,7 @@ export class PlayerStatusScreen extends Component {
     onClick = (e) => {
         document.querySelector(".playerStatusContainer").classList.toggle('open');
         document.querySelector("#openBtn").classList.toggle('shiftDownward');
-        document.querySelector("#gameBoard").classList.toggle('fadeOutBackground');
+        // document.querySelector("#gameBoard").classList.toggle('fadeOutBackground');
         document.querySelector('body').classList.toggle('hideScrollBar');
     }
 

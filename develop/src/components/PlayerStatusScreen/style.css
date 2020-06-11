@@ -28,8 +28,8 @@
     overflow: hidden;
 }
 
-.fadeOutBackground{
-    transition: .55s linear;
+/* .fadeOutBackground{
+    transition: .85s linear;
     animation: fadeOut .85s;
 }
 
@@ -40,7 +40,7 @@
     100%{
         opacity: -1;
     }
-}
+} */
 
 #openBtn{
     border: 10px solid rgb(245, 245, 245);
