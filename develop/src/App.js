@@ -5,6 +5,7 @@ import Dice from './components/Dice/index';
 // import Space from "./classes/space";
 // import Property from "./classes/property";
 import PropertyCard from "./components/Property";
+import PlayerStatusScreen from "./components/PlayerStatusScreen"
 import './style.css'
 
 // Calculator component
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <>
+    <PlayerStatusScreen/>
       <div id="gameBoard">
         <PropertyCard />
         <PropertyCard />
