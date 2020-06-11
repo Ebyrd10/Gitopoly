@@ -10,7 +10,7 @@ export class PlayerStatusCard extends Component {
                 {/* Player Icon */}
                 <div className="playerIcon"></div>
                 {/* Select New Icon Bar */}
-                {/* < PlayerIcon playerIconSrc={this.state.playerIconSrc}/> */}
+                < PlayerIcon/>
                 <div className="playerNum"> Player  </div>
                 {/* Name */}
                 <div className="playerName cardList"> Name: </div>
