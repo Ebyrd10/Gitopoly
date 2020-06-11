@@ -6,22 +6,174 @@ import Space from "./space";
 class GameManager{
     turnArray = [];
 
-     playerArray=[];
-    freeParkingValue=0;
+    playerArray=[];
+    //No compromises! No free parking money!
 
     currentTurn; //This holds the player whose turn it is
     currentPlayerInput;//This holds the player who is currently being prompted. It will usually be the same as currentTurn.
+    startingPosition; //TODO: Set this to Go
     //Display the player color accordingly
+    
+    AddPlayer(newPlayerObj) //This takes a submission of a player's data as input
+    {
+        newPlayer = new Player(newPlayerObj.name,startingPosition,newPlayerObj.color,newPlayerObj.icon);
+        this.playerArray.push(newPlayer);
+        //TODO: Update display state
+    }
+
+    SetFirstPlayer() {
+        let startingPlayerIndex = Math.floor(Math.random()*this.playerArray.length);
+        this.currentTurn = this.playerArray[startingPlayerIndex];
+        for(let i = 0; i < this.playerArray.length; i++)
+        {
+            let currentIndex = startingPlayerIndex + i;
+            currentIndex >= this.playerArray.length ?
+            (currentIndex = currentIndex-this.playerArray.length) : (currentIndex = currentIndex);
+            this.turnArray.push(this.playerArray[currentIndex]);
+        }
+    }
+
+    GameStart() {
+        //TODO: Change screen to the main game
+        this.SetFirstPlayer();
+        this.nextTurn();
+    }
+
+    nextPlayer() {
+        let currentPlayerIndex = this.playerArray.indexOf(this.currentTurn);
+        currentPlayerIndex++;
+        currentPlayerIndex >= this.playerArray.length ? 
+        (currentPlayerIndex = currentPlayerIndex-this.playerArray.length) : (currentPlayerIndex = currentPlayerIndex);
+        this.currentTurn = this.playerArray[currentPlayerIndex];
+    }
+
+    // TURN METHODS
+    nextTurn() { 
+        
+    }
+
+    MovePlayerByDistance(player, distance) {
+        //This is written under the assumpation that the ids of spaces are their order around the board, starting at zero and increasing.
+        //If this is changed, the code to find the destination will need to be adjusted
+        let currentPos = player.position.id;
+        let newPos = currentPos + distance;
+        if(newPos > this.propertyArray.length)
+        {
+            newPos = newPos - this.playerArray.length;
+        }
+        let newSpace = this.propertyArray.find(id===newPos);
+        player.position = newSpace;
+        this.ExecuteSpace(player,space);
+    }
+
+    MovePlayerToSpace(player, space) {
+        player.position = space;
+        this.ExecuteSpace(player,space);
+    }
+
+    ExecuteSpace(player,space)
+    {
+
+    }
+
+    
+    rollDice() {
+        let dice = [];
+        dice[0] = Math.floor(Math.random() * 6) + 1;
+        dice[1] = Math.floor(Math.random() * 6) + 1;
+        return dice;
+    }
+
+    playerBankrupt(player){
+        // GET THE INDEX OF THE BANKRUPT PLAYER FROM THE TURN ARRAY
+        bankruptPlayerIndex=this.turnArray.indexOf(player);
+        // SLICE THEM OUT OF THE ARRAY
+        this.turnArray=this.turnArray.slice(0, bankruptPlayerIndex-1).concat(this.turnArray.slice(bankruptPlayerIndex, this.turnArray.length))
+    }
+    
+    canBuy(player,amount) {
+        if(player.balance<amount){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    // METHOD CALLED AT BEGINNING TO CREATE PLAYERS AND ADD THEM TO STATE
+    createPlayer(name, playerColor,playerIcon){
+        player = {
+            name : name,
+            position : startingPosition,
+            color : playerColor,
+            icon : playerIcon,
+            balance : 1500,
+            inJail : false,
+            jailCounter : 0,
+            doubleCounter : 0,
+            ownedProperties : [],
+        }
+        
+    }
+    
+    
+    
+    addToPlayerBalance(player,amount){
+        player.balance += amount;
+    }
+    
+    subtractFromPlayerBalance(player,amount){
+        player.balance -= amount;
+    }
+    
+
+
+    // 
+    playerBuysProperty(player,property){
+        // SET THE PLAYERS STATE TO INCLUDE THE OWNED PROPERTY IN THE ARRAY
+        player.ownedProperties.push(property);
+
+        // SET THE PROPERTY'S OWNER
+        property.ownedBy = player;
+    }
+    
+    // PLAYER.INJAIL IS TRUE AND PLAYER POSITION MOVED
+    playerGoesToJail(player){
+        player.inJail = true;
+        player.position = jailIndex;
+    }
+    
+    addHouseToProperty()
+
+
+
+
+    mortgageProperty(property) {
+        property.mortgaged=True;
+    }
+
+    
+    unmortgageProperty(property) {
+        property.mortgaged=False;
+    }
+
+    addHousesToProperty(number) { 
+        this.houses+=number;
+    }
+
+    getRent() {
+        return rent[this.houses];
+    }
+
+    getPropertyValue(property) {
+        return property.value;
+    }
+
+    checkOwner(property) {
+        return property.ownedBy;
+    }
 
     propertyArray=[
-        // {
-        //     Name
-        //     Value
-        //     Color
-        //     Owned By
-        //     Mortgaged True or False
-            
-        // },
+       
         {
             id:0
             name: "Go",
@@ -349,149 +501,8 @@ class GameManager{
             "rent": [50,200,600,1400,1700,2000],
             "group": [8, 2, 2],
             house: 200,
-        }
+        }*/
     ]
-    
-    
-    
-    
-    
-    currentPlayersTurn="";
-    
-    // TURN METHODS
-    nextTurn() { 
-        // GET THE CURRENT PLAYERS NAME
-        let currentPlayer=this.currentPlayer;
-        // GET THEIR INDEX IN THE TURN ARRAY
-        let playerIndex=this.turnArray.indexOf(currentPlayer);
-        // GET THE NEXT PLAYERS NAME USING THE NEXT INDEX VALUE
-        let nextPlayer=this.turnArray[(playerIndex+1) % this.turnArray.length];
-        // SET THE CURRENT PLAYER TO THE NEXT PLAYER
-        this.currentPlayersTurn=nextPlayer;
-    }
-
-   // playersTurn(currentPlayersTurn) {
-   //}    
-
-    MovePlayerByDistance(player, distance) {
-        //This is written under the assumpation that the ids of spaces are their order around the board, starting at zero and increasing.
-        //If this is changed, the code to find the destination will need to be adjusted
-        let currentPos = player.position.id;
-        let newPos = currentPos + distance;
-        if(newPos > this.propertyArray.length)
-        {
-            newPos = newPos - this.playerArray.length;
-        }
-        let newSpace = this.propertyArray.find(id===newPos);
-        player.position = newSpace;
-        this.ExecuteSpace(player,space);
-    }
-
-    MovePlayerToSpace(player, space) {
-        player.position = space;
-        this.ExecuteSpace(player,space);
-    }
-
-    ExecuteSpace(player,space)
-    {
-
-    }
-
-    
-    rollDice() {
-        let dice = [];
-        dice[0] = Math.floor(Math.random() * 6) + 1;
-        dice[1] = Math.floor(Math.random() * 6) + 1;
-        return dice;
-    }
-
-    playerBankrupt(player){
-        // GET THE INDEX OF THE BANKRUPT PLAYER FROM THE TURN ARRAY
-        bankruptPlayerIndex=this.turnArray.indexOf(player);
-        // SLICE THEM OUT OF THE ARRAY
-        this.turnArray=this.turnArray.slice(0, bankruptPlayerIndex-1).concat(this.turnArray.slice(bankruptPlayerIndex, this.turnArray.length))
-    }
-    
-    canBuy(player,amount) {
-        if(player.balance<amount){
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
-    // METHOD CALLED AT BEGINNING TO CREATE PLAYERS AND ADD THEM TO STATE
-    createPlayer(name, playerColor,playerIcon){
-        player = {
-            name : name,
-            position : startingPosition,
-            color : playerColor,
-            icon : playerIcon,
-            balance : 1500,
-            inJail : false,
-            jailCounter : 0,
-            doubleCounter : 0,
-            ownedProperties : [],
-        }
-        
-    }
-    
-    
-    
-    addToPlayerBalance(player,amount){
-        player.balance += amount;
-    }
-    
-    subtractFromPlayerBalance(player,amount){
-        player.balance -= amount;
-    }
-    
-
-
-    // 
-    playerBuysProperty(player,property){
-        // SET THE PLAYERS STATE TO INCLUDE THE OWNED PROPERTY IN THE ARRAY
-        player.ownedProperties.push(property);
-
-        // SET THE PROPERTY'S OWNER
-        property.ownedBy = player;
-    }
-    
-    // PLAYER.INJAIL IS TRUE AND PLAYER POSITION MOVED
-    playerGoesToJail(player){
-        player.inJail = true;
-        player.position = jailIndex;
-    }
-    
-    addHouseToProperty()
-
-
-
-
-    mortgageProperty(property) {
-        property.mortgaged=True;
-    }
-
-    
-    unmortgageProperty(property) {
-        property.mortgaged=False;
-    }
-
-    addHousesToProperty(number) { 
-        this.houses+=number;
-    }
-
-    getRent() {
-        return rent[this.houses];
-    }
-
-    getPropertyValue(property) {
-        return property.value;
-    }
-
-    checkOwner() {
-        return property.ownedBy;
-    }
 }
 export default GameManager;
 
