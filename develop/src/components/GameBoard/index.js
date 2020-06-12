@@ -3,6 +3,7 @@ import PropertyCard from "../Property";
 import PlayerStatusScreen from "../PlayerStatusScreen"
 import Dice from '../Dice/';
 // import PlayerIcon from '../PlayerIcon'
+import PlayerStatusButton from '../PlayerStatusButton'
 import './style.css'
 
 export class GameBoard extends Component {
@@ -338,6 +339,7 @@ export class GameBoard extends Component {
             }
         ]
     }
+
   render() {
     return (
       <div id="gameBoard">
@@ -357,6 +359,7 @@ export class GameBoard extends Component {
         />
         })}
         <div id="centerItem">
+        < PlayerStatusButton />
          <Dice /> 
         </div>
       </div>
