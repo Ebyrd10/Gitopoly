@@ -51,6 +51,7 @@ class GameManager{
         currentPlayerIndex >= this.playerArray.length ? 
         (currentPlayerIndex = currentPlayerIndex-this.playerArray.length) : (currentPlayerIndex = currentPlayerIndex);
         this.currentTurn = this.playerArray[currentPlayerIndex];
+        this.nextTurn();
     }
 
     // TURN METHODS
@@ -60,12 +61,14 @@ class GameManager{
     }
 
     recieveRoll(roll) {
+        this.expectingRoll = false;
         if(!this.currentTurn.inJail)
         {
             let totalRoll = roll[0]+roll[1];
             if(roll[0] === roll[1])
             {
                 this.doubles = true;
+                this.expectingRoll = true;
                 this.currentTurn.doubleCounter++;
             }
             this.MovePlayerByDistance(this.currentTurn,totalRoll);
@@ -74,38 +77,47 @@ class GameManager{
         {
             if(roll[0] == roll[1])
             {
+                this.expectingRoll = true;
                 this.currentTurn.release();
                 this.continueTurn();
+            }
+            else
+            {
+                
+                this.currentTurn.jailCounter++;
+                if(this.continueTurn.jailCounter >= 3)
+                {
+                    this.expectingRoll = true;
+                    this.currentTurn.loseMoney(50,null);
+                    this.currentTurn.release();
+                    this.continueTurn();
+                }
             }
         }
     }
 
     continueTurn() {
-        if(this.doubles && !this.currentTurn.inJail)
+        if(!this.expectingRoll)
+        {
+            this.endTurn();
+        }
+        else if(!this.currentTurn.inJail)
         {
             if(this.currentTurn.doubleCounter >= 3)
             {
                 this.currentTurn.SendToJail(jail); //TODO: Create a "Jail" object
                 endTurn();
             }
-            else
-            {
-                this.expectingRoll = true;
-            }
-        }
-        else
-        {
-            endTurn();
         }
     }
 
     endTurn() {
         this.currentTurn.doubleCounter = 0;
-        if(this.currentTurn.inJail){
-            this.currentTurn.jailCounter++;
+        if(this.currentTurn.balance <= 0)
+        {
+            this.playerLoss(this.currentTurn);
         }
         this.nextPlayer();
-        this.nextTurn();
     }
 
 
@@ -114,11 +126,6 @@ class GameManager{
         let deleteIndex = this.turnArray.indexOf(player);
         this.turnArray.splice(deleteIndex,1);
         this.bankruptArray.push(player);
-        if(this.currentTurn === player)
-        {
-            this.nextPlayer();
-            this.nextTurn();
-        }
         //TODO: Display a message to the player
     }
 
