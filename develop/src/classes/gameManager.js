@@ -7,12 +7,19 @@ class GameManager{
     turnArray = [];
 
     playerArray=[];
+    bankruptArray = [];
     //No compromises! No free parking money!
 
     currentTurn; //This holds the player whose turn it is
     currentPlayerInput;//This holds the player who is currently being prompted. It will usually be the same as currentTurn.
     startingPosition; //TODO: Set this to Go
     //Display the player color accordingly
+
+    doubles = false;
+
+    //The following booleans control which elements should be displayed by React
+    expectingRoll = false;
+    winScreen = false;
     
     AddPlayer(newPlayerObj) //This takes a submission of a player's data as input
     {
@@ -45,11 +52,87 @@ class GameManager{
         currentPlayerIndex >= this.playerArray.length ? 
         (currentPlayerIndex = currentPlayerIndex-this.playerArray.length) : (currentPlayerIndex = currentPlayerIndex);
         this.currentTurn = this.playerArray[currentPlayerIndex];
+        this.nextTurn();
     }
 
     // TURN METHODS
     nextTurn() { 
-        
+        if(this.turnArray.length === 1)
+        {
+            this.winScreen = true;
+            return;
+        }
+        this.currentPlayerInput = this.currentTurn;
+        this.expectingRoll = true;
+    }
+
+    recieveRoll(roll) {
+        this.expectingRoll = false;
+        if(!this.currentTurn.inJail)
+        {
+            let totalRoll = roll[0]+roll[1];
+            if(roll[0] === roll[1])
+            {
+                this.doubles = true;
+                this.expectingRoll = true;
+                this.currentTurn.doubleCounter++;
+            }
+            this.MovePlayerByDistance(this.currentTurn,totalRoll);
+        }
+        else
+        {
+            if(roll[0] == roll[1])
+            {
+                this.expectingRoll = true;
+                this.currentTurn.release();
+                this.continueTurn();
+            }
+            else
+            {
+                
+                this.currentTurn.jailCounter++;
+                if(this.continueTurn.jailCounter >= 3)
+                {
+                    this.expectingRoll = true;
+                    this.currentTurn.loseMoney(50,null);
+                    this.currentTurn.release();
+                    this.continueTurn();
+                }
+            }
+        }
+    }
+
+    continueTurn() {
+        if(!this.expectingRoll)
+        {
+            this.endTurn();
+        }
+        else if(!this.currentTurn.inJail)
+        {
+            if(this.currentTurn.doubleCounter >= 3)
+            {
+                this.currentTurn.SendToJail(jail); //TODO: Create a "Jail" object
+                endTurn();
+            }
+        }
+    }
+
+    endTurn() {
+        this.currentTurn.doubleCounter = 0;
+        if(this.currentTurn.balance <= 0) //Checks if this player has been eliminated
+        {
+            this.playerLoss(this.currentTurn);
+        }
+        this.nextPlayer();
+    }
+
+
+    //Functional methods
+    playerLoss(player) {
+        let deleteIndex = this.turnArray.indexOf(player);
+        this.turnArray.splice(deleteIndex,1);
+        this.bankruptArray.push(player);
+        //TODO: Display a message to the player
     }
 
     MovePlayerByDistance(player, distance) {

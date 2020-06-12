@@ -3,9 +3,10 @@ class Space {
     {
         this.id = id;
         this.name = name;
+        this.players = [];
     }
     
-    onLand()
+    onLand(player)
     {
         alert("You've landed on " + this.name);
     }
