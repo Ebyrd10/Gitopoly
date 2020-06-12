@@ -23,6 +23,15 @@ class Player{
         this.ownedProperties.push(property);
     }
 
+    SendToJail(jail){
+        this.position = jail;
+        this.inJail = true;
+    }
+
+    Release(){
+        this.inJail = false;
+    }
+
 }
 
 export default Player;

@@ -7,12 +7,18 @@ class GameManager{
     turnArray = [];
 
     playerArray=[];
+    bankruptArray = [];
     //No compromises! No free parking money!
 
     currentTurn; //This holds the player whose turn it is
     currentPlayerInput;//This holds the player who is currently being prompted. It will usually be the same as currentTurn.
     startingPosition; //TODO: Set this to Go
     //Display the player color accordingly
+
+    doubles = false;
+
+    //The following booleans control which elements should be displayed by React
+    expectingRoll = false;
     
     AddPlayer(newPlayerObj) //This takes a submission of a player's data as input
     {
@@ -49,7 +55,71 @@ class GameManager{
 
     // TURN METHODS
     nextTurn() { 
-        
+        this.currentPlayerInput = this.currentTurn;
+        this.expectingRoll = true;
+    }
+
+    recieveRoll(roll) {
+        if(!this.currentTurn.inJail)
+        {
+            let totalRoll = roll[0]+roll[1];
+            if(roll[0] === roll[1])
+            {
+                this.doubles = true;
+                this.currentTurn.doubleCounter++;
+            }
+            this.MovePlayerByDistance(this.currentTurn,totalRoll);
+        }
+        else
+        {
+            if(roll[0] == roll[1])
+            {
+                this.currentTurn.release();
+                this.continueTurn();
+            }
+        }
+    }
+
+    continueTurn() {
+        if(this.doubles && !this.currentTurn.inJail)
+        {
+            if(this.currentTurn.doubleCounter >= 3)
+            {
+                this.currentTurn.SendToJail(jail); //TODO: Create a "Jail" object
+                endTurn();
+            }
+            else
+            {
+                this.expectingRoll = true;
+            }
+        }
+        else
+        {
+            endTurn();
+        }
+    }
+
+    endTurn() {
+        this.currentTurn.doubleCounter = 0;
+        if(this.currentTurn.inJail){
+            this.currentTurn.jailCounter++;
+        }
+        this.nextPlayer();
+        this.nextTurn();
+    }
+
+
+    //Functional methods
+    playerLoss(player) {
+        let deleteIndex = this.turnArray.indexOf(player);
+        this.turnArray.splice(deleteIndex,1);
+        this.bankruptArray.push(player);
+        if(this.currentTurn === player)
+        {
+            this.nextPlayer();
+            this.nextTurn();
+        }
+        //TODO: Display a message to the player
     }
 
     MovePlayerByDistance(player, distance) {
