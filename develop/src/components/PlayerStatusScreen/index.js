@@ -4,12 +4,12 @@ import './style.css'
 
 export class PlayerStatusScreen extends Component {
 
-    // onClick = (e) => {
-    //     document.querySelector(".playerStatusContainer").classList.toggle('open');
-    //     document.querySelector("#openBtn").classList.toggle('shiftDownward');
-    //     // document.querySelector("#gameBoard").classList.toggle('fadeOutBackground');
-    //     document.querySelector('body').classList.toggle('hideScrollBar');
-    // }
+    onClick = (e) => {
+        document.querySelector(".playerStatusContainer").classList.toggle('open');
+        document.querySelector("#openBtn").classList.toggle('shiftDownward');
+        // document.querySelector("#gameBoard").classList.toggle('fadeOutBackground');
+        document.querySelector('body').classList.toggle('hideScrollBar');
+    }
 
     render() {
         return (
@@ -21,6 +21,7 @@ export class PlayerStatusScreen extends Component {
                 < PlayerStatusCard playerID={3}/>
                 < PlayerStatusCard playerID={4}/>
             </div>
+           
             </>
         )
     }

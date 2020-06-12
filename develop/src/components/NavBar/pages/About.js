@@ -3,7 +3,7 @@ import './style.css'
 
 function About() {
   return (
-    <div>
+    <div className="navTabPopOut">
       <h2>About Page</h2>
       <p>
       === Brief Description of the Game here === 

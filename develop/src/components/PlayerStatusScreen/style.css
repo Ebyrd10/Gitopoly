@@ -21,7 +21,10 @@
 
 .shiftDownward {
     transition: .55s linear;
-    transform: translate3d(0, 300%, 0);
+    transform: translate3d(0, 50%, 0);
+    position: absolute;
+    top:1px;
+    left:1px;
 }
 
 .hideScrollBar{

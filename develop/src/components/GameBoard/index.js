@@ -359,7 +359,7 @@ export class GameBoard extends Component {
         />
         })}
         <div id="centerItem">
-        < PlayerStatusButton />
+        < PlayerStatusButton/>
          <Dice /> 
         </div>
       </div>

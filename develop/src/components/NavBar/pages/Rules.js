@@ -3,7 +3,7 @@ import './style.css'
 
 function Rules () {
   return (
-    <div>
+    <div  className="navTabPopOut">
       <h2>  Rules </h2>
       <div>
         <p><span id="list-tag"> 1) </span> lorem!</p>
