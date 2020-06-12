@@ -17,10 +17,9 @@
 .card:hover {
     box-shadow: 6px 8px 16px 6px rgba(0, 0, 0, 0.3);
     padding: 1px;
-    cursor: pointer;
-    /* transform: translate3d(-25%, -5%, 0); */
+    cursor: pointer; 
     transition: 1s cubic-bezier(0.785, 0.135,0.15,0.86) 0s;
-  }
+} 
 
 .cardHeader {
     width: 95%;
@@ -33,6 +32,7 @@
     margin-top: 2px;
     background-color: lightgray;
     border-radius: 15px;
+    width: 90%;
     
 }
 
@@ -40,9 +40,10 @@
     text-transform: uppercase;
     justify-content: center;
     text-align: center;
+    overflow: hidden;
 }
 
-.title {
+.title, .rentTitle{
     font-family: 'Montserrat Subrayada', sans-serif;
     font-size: larger;
 }
@@ -118,6 +119,14 @@
     z-index: 999; 
 }
 
+.rentList{
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    flex-direction: column;
+}
+
 /* Card Flip on Hover Effects */
 .card, .front, .back{
     height: 210px;
@@ -126,7 +135,7 @@
 
 .card{
     position: relative;
-    transition: 0.2s;
+    transition: 0.8s;
     transform-style: preserve-3d;
     top:0;
     left:0;
@@ -137,6 +146,10 @@
     position: absolute;
     backface-visibility: hidden;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .card:hover {

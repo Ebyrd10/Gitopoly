@@ -16,21 +16,18 @@ export class PropertyCard extends Component {
           <div className="cardBody">
               <div className ="bodyList">
                   <div> Value: ${this.props.value ? this.props.value : 100} </div>
-                  <div>Owned By:{this.props.ownedBy ? this.props.ownedBy : ''}</div>
-                  <div>Mortaged:{this.props.mortaged ? 'Yes' : 'No'}</div>
+                  <div>{this.props.ownedBy ? `Owned By : ${this.props.ownedBy}` : 'For Sale'}</div>
+                  {/* <div>Mortaged:{this.props.mortaged ? 'Yes' : 'No'}</div> */}
               </div>
           </div>
           </div>
 
-        <div className={this.props.mortaged === true ? 'card back mortaged' : 'card back'}>
-            <div className="rentTitle"> Rent</div>
+        <div className={this.props.mortaged === true ? 'back mortaged' : 'back'}>
+            <div className="rentTitle"> Rent Per House</div>
               <div className ="rentList">
-                  <div>0 Houses: ${this.props.rent[0]} </div>
-                  <div>1 House: ${this.props.rent[1]}</div>
-                  <div>2 Houses: ${this.props.rent[2]}</div>
-                  <div>3 Houses: ${this.props.rent[3]} </div>
-                  <div>4 Houses: ${this.props.rent[4]}</div>
-                  <div>5 Houses: ${this.props.rent[5]}</div>
+              {this.props.rent.map((rent, index) => 
+                <div className='rentListItem'>{index} : ${rent} </div>
+              )}
               </div>
           </div> 
 
