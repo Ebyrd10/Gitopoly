@@ -353,11 +353,11 @@ export class GameBoard extends Component {
         value = {property.cost} 
         ownedBy = {property.ownedBy} 
         mortaged = {property.mortaged} 
+        rent = {property.rent}
         />
         })}
         <div id="centerItem">
          <Dice /> 
-         {/* <PlayerIcon /> */}
         </div>
       </div>
     );

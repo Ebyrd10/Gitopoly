@@ -5,7 +5,9 @@ export class PropertyCard extends Component {
   render() {
     if (this.props.cardType==='property') {
     return (
-        <div className="card" className={this.props.mortaged === true ? 'card mortaged' : 'card'}>
+        <div className='card'>
+
+        <div className={this.props.mortaged === true ? 'front mortaged' : 'front'}>
           <div className="cardHeader" style={{backgroundColor: this.props.group ? this.props.group: 'red'}}></div>
           <div className="titleContainer">
             <div className="title"> Title Deed</div>
@@ -18,6 +20,21 @@ export class PropertyCard extends Component {
                   <div>Mortaged:{this.props.mortaged ? 'Yes' : 'No'}</div>
               </div>
           </div>
+          </div>
+
+        <div className={this.props.mortaged === true ? 'card back mortaged' : 'card back'}>
+            <div className="rentTitle"> Rent</div>
+              <div className ="rentList">
+                  <div>0 Houses: ${this.props.rent[0]} </div>
+                  <div>1 House: ${this.props.rent[1]}</div>
+                  <div>2 Houses: ${this.props.rent[2]}</div>
+                  <div>3 Houses: ${this.props.rent[3]} </div>
+                  <div>4 Houses: ${this.props.rent[4]}</div>
+                  <div>5 Houses: ${this.props.rent[5]}</div>
+              </div>
+          </div> 
+
+        
         </div>
     )}
     else {

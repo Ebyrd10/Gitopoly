@@ -7,8 +7,11 @@
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.1);
     top: 0;
     left: 0;
-    /* transform: translate3d(0, -100%, 0);
-    transition: 5s cubic-bezier(0.785, 0.135,0.15,0.86) 0s; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
 }
 .card:hover {
@@ -20,15 +23,17 @@
   }
 
 .cardHeader {
-    width: 99%;
+    width: 95%;
     height: 2rem;
     border-radius: 15px;
+    
 }
 
 .titleContainer {
     margin-top: 2px;
     background-color: lightgray;
     border-radius: 15px;
+    
 }
 
 .title, .subTitle {
@@ -112,3 +117,38 @@
     position: absolute;
     z-index: 999; 
 }
+
+/* Card Flip on Hover Effects */
+.card, .front, .back{
+    height: 210px;
+    width: 18rem;
+}
+
+.card{
+    position: relative;
+    transition: 0.2s;
+    transform-style: preserve-3d;
+    top:0;
+    left:0;
+    perspective: 1000px;
+}
+
+.front, .back{
+    position: absolute;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform : rotateY(180deg)
+}
+
+.font{
+    transform: rotateY(0deg);
+}
+.back{
+    transform: rotateY(180deg)
+}
+
+
+
