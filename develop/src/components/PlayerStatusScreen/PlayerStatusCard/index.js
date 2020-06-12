@@ -16,7 +16,10 @@ export class PlayerStatusCard extends Component {
                 {/* <div className="playerIcon"></div> */}
                 {/* Select New Icon Bar */}
                 < PlayerIcon/>
+
+                <br/>
                 <div className="playerNum"> Player {this.props.playerID}</div>
+
                 {/* Name */}
                 <div className="playerName cardList"> Name: </div>
                 {/* Money */}
