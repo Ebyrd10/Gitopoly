@@ -16,10 +16,10 @@ export class PlayerStatusScreen extends Component {
             <>
             <div onClick={this.onClick} id='openBtn'>Status</div>
             <div className="playerStatusContainer">
-                < PlayerStatusCard />
-                < PlayerStatusCard />
-                < PlayerStatusCard />
-                < PlayerStatusCard />
+                < PlayerStatusCard playerID={1}/>
+                < PlayerStatusCard playerID={2}/>
+                < PlayerStatusCard playerID={3}/>
+                < PlayerStatusCard playerID={4}/>
             </div>
             </>
         )
