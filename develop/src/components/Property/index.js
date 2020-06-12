@@ -5,7 +5,7 @@ export class PropertyCard extends Component {
   render() {
     if (this.props.cardType==='property') {
     return (
-        <div className="card">
+        <div className="card" className={this.props.mortaged === true ? 'card mortaged' : 'card'}>
           <div className="cardHeader" style={{backgroundColor: this.props.group ? this.props.group: 'red'}}></div>
           <div className="titleContainer">
             <div className="title"> Title Deed</div>

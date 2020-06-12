@@ -86,3 +86,29 @@
     font-size: 3rem;
     padding: 1rem;
 }
+
+.mortaged:before {
+    content: '';
+    transform: rotate(40deg);
+    height: 220px;
+    width: 10px;
+    margin-top: -15px;
+    margin-left: 60px;
+    background-color: red;
+    display: block;
+    position: absolute;
+    z-index: 999;
+}
+
+.mortaged:after {
+    content: '';
+    transform: rotate(-40deg);
+    height: 220px;
+    width: 10px;
+    margin-top: -195px;
+    margin-left: 75px;
+    background-color: red;
+    display: block;
+    position: absolute;
+    z-index: 999; 
+}

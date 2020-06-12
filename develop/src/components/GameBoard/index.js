@@ -343,9 +343,17 @@ export class GameBoard extends Component {
       <div id="gameBoard">
         <PlayerStatusScreen />
         {this.state.propertyArray.map((property, index) => 
-        // if ((property.type === 'property')||(property.type === 'cornerCard'))
         {if ((property.type === 'property')||(property.type === 'cornerCard'))
-        return <PropertyCard key={index} id={index} cardType = {property.type} group = {property.color} name = {property.name} value = {property.cost} ownedBy = {property.ownedBy} mortaged = {property.mortaged}/>
+        return <PropertyCard 
+        key={index} 
+        id={index} 
+        cardType = {property.type} 
+        group = {property.color} 
+        name = {property.name} 
+        value = {property.cost} 
+        ownedBy = {property.ownedBy} 
+        mortaged = {property.mortaged} 
+        />
         })}
         <div id="centerItem">
          <Dice /> 
