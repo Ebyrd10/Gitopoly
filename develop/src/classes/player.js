@@ -27,6 +27,7 @@ class Player{
         else
         {
             amount = this.balance;
+            this.balance = 0;
             //The game manager will check if a player has zero money at the end of thier turn.
         }
         if(target !== null)

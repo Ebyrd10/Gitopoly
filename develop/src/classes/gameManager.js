@@ -113,7 +113,7 @@ class GameManager{
 
     endTurn() {
         this.currentTurn.doubleCounter = 0;
-        if(this.currentTurn.balance <= 0)
+        if(this.currentTurn.balance <= 0) //Checks if this player has been eliminated
         {
             this.playerLoss(this.currentTurn);
         }
