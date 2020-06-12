@@ -19,6 +19,7 @@ class GameManager{
 
     //The following booleans control which elements should be displayed by React
     expectingRoll = false;
+    winScreen = false;
     
     AddPlayer(newPlayerObj) //This takes a submission of a player's data as input
     {
@@ -56,6 +57,11 @@ class GameManager{
 
     // TURN METHODS
     nextTurn() { 
+        if(this.turnArray.length === 1)
+        {
+            this.winScreen = true;
+            return;
+        }
         this.currentPlayerInput = this.currentTurn;
         this.expectingRoll = true;
     }
