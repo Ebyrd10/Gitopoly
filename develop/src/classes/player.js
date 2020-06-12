@@ -19,6 +19,22 @@ class Player{
         this.balance += amount;
     }
 
+    loseMoney(amount, target){
+        if (amount <= this.balance)
+        {
+            this.balance -= amount;
+        }
+        else
+        {
+            amount = this.balance;
+            //The game manager will check if a player has zero money at the end of thier turn.
+        }
+        if(target !== null)
+        {
+            target.addToBalance(amount);
+        }
+    }
+
     AddProperty(property){
         this.ownedProperties.push(property);
     }
