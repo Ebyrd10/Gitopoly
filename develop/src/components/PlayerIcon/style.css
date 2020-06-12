@@ -13,13 +13,14 @@ input[type=text]{
   padding: 5px;
   padding-top: 8px;
   padding-bottom: 8px;
+  margin-right: 1rem;
 }
 
 button {
   background-color: none;
   box-shadow:2px 2px 2px 2px black;
-  height: 15px;
-  width: 5px;
+  height: auto;
+  width: auto;
 }
 
 

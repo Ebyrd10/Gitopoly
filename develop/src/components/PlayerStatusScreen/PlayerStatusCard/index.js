@@ -13,10 +13,13 @@ export class PlayerStatusCard extends Component {
         return (
             <div className="playerStatusCardContainer" playerID={this.props.playerID}>
                 {/* Player Icon */}
-                <div className="playerIcon"></div>
+                {/* <div className="playerIcon"></div> */}
                 {/* Select New Icon Bar */}
                 < PlayerIcon/>
+
+                <br/>
                 <div className="playerNum"> Player {this.props.playerID}</div>
+
                 {/* Name */}
                 <div className="playerName cardList"> Name: </div>
                 {/* Money */}
