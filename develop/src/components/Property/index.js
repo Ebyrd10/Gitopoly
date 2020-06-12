@@ -30,8 +30,8 @@ export class PropertyCard extends Component {
         <div className="cornerCardIconContainer">
             {this.props.name === 'Jail'? <i class="fas fa-trailer fa-4x"></i> : '' }
             {this.props.name === 'Free Parking'? <i class="fas fa-parking fa-4x"></i> : '' }
-            {this.props.name === 'Go to Jail'? <i class="fas fa-helicopter fa-4x"></i> : '' }
-            {this.props.name === 'GO'? <i class="fas fa-chevron-circle-up fa-4x"></i> : '' }
+            {this.props.name === 'Go To Jail'? <i class="fas fa-helicopter fa-4x"></i> : '' }
+            {this.props.name === 'Go'? <i class="fas fa-chevron-circle-up fa-4x"></i> : '' }
         </div>
       </div>
     )}
