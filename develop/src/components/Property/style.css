@@ -163,5 +163,8 @@
     transform: rotateY(180deg)
 }
 
-
+.sidewaysGitopoly{
+    transform: rotate(-45deg);
+    font-size: 4rem;
+}
 

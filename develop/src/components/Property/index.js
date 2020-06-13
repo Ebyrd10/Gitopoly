@@ -37,6 +37,7 @@ export class PropertyCard extends Component {
     else {
       return (
       <div className="card cornerCard">
+        <div className = "front">
         <div className="cornerCardInterior">
         {this.props.name ? this.props.name : 'Corner Card'}
         {/* <input type="text" value={this.props.name ? this.props.name : 'Corner Card'} onChange= {this.OnTitleChange} name='cardTitle' style={{border: 'none', background: 'transparent'}}/> */}
@@ -46,6 +47,10 @@ export class PropertyCard extends Component {
             {this.props.name === 'Free Parking'? <i class="fas fa-parking fa-4x"></i> : '' }
             {this.props.name === 'Go To Jail'? <i class="fas fa-helicopter fa-4x"></i> : '' }
             {this.props.name === 'Go'? <i class="fas fa-chevron-circle-up fa-4x"></i> : '' }
+        </div>
+        </div>
+        <div className='back'>
+          <span className="sidewaysGitopoly">Gitopoly!</span>
         </div>
       </div>
     )}
