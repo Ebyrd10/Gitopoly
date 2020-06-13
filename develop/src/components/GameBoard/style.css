@@ -1,7 +1,7 @@
 
 #gameBoard {
     margin: 1rem;
-    height: 85vh;
+    padding-bottom: 5rem;
     display: grid;
     gap: 0.1rem;
   
