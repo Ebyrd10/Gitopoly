@@ -7,37 +7,44 @@
     box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.1);
     top: 0;
     left: 0;
-    /* transform: translate3d(0, -100%, 0);
-    transition: 5s cubic-bezier(0.785, 0.135,0.15,0.86) 0s; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
 }
 .card:hover {
-    box-shadow: 6px 8px 16px 6px rgba(0, 0, 0, 0.3);
+    /* box-shadow: 6px 8px 16px 6px rgba(0, 0, 0, 0.3); */
+    box-shadow: 4px 6px 12px 4px rgba(0, 0, 0, 0.3);
     padding: 1px;
-    cursor: pointer;
-    /* transform: translate3d(-25%, -5%, 0); */
+    cursor: pointer; 
     transition: 1s cubic-bezier(0.785, 0.135,0.15,0.86) 0s;
-  }
+} 
 
 .cardHeader {
-    width: 99%;
+    width: 95%;
     height: 2rem;
     border-radius: 15px;
+    
 }
 
 .titleContainer {
     margin-top: 2px;
     background-color: lightgray;
     border-radius: 15px;
+    width: 90%;
+    
 }
 
 .title, .subTitle {
     text-transform: uppercase;
     justify-content: center;
     text-align: center;
+    overflow: hidden;
 }
 
-.title {
+.title, .rentTitle{
     font-family: 'Montserrat Subrayada', sans-serif;
     font-size: larger;
 }
@@ -78,9 +85,87 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: white;
 }
 
 .cornerCardInterior{
     font-family: 'Montserrat Subrayada', sans-serif;
-    font-size: larger;
+    font-size: 3rem;
+    padding: 1rem;
 }
+
+.mortaged:before {
+    content: '';
+    transform: rotate(40deg);
+    height: 220px;
+    width: 10px;
+    margin-top: -15px;
+    margin-left: 60px;
+    background-color: red;
+    display: block;
+    position: absolute;
+    z-index: 999;
+}
+
+.mortaged:after {
+    content: '';
+    transform: rotate(-40deg);
+    height: 220px;
+    width: 10px;
+    margin-top: -195px;
+    margin-left: 75px;
+    background-color: red;
+    display: block;
+    position: absolute;
+    z-index: 999; 
+}
+
+.rentList{
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+    flex-direction: column;
+}
+
+/* Card Flip on Hover Effects */
+.card, .front, .back{
+    height: 210px;
+    width: 18rem;
+}
+
+.card{
+    position: relative;
+    transition: 0.8s;
+    transform-style: preserve-3d;
+    top:0;
+    left:0;
+    perspective: 1000px;
+}
+
+.front, .back{
+    position: absolute;
+    backface-visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform : rotateY(180deg)
+}
+
+.font{
+    transform: rotateY(0deg);
+}
+.back{
+    transform: rotateY(180deg)
+}
+
+.sidewaysGitopoly{
+    transform: rotate(-45deg);
+    font-size: 4rem;
+}
+
