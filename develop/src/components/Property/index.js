@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import "./style.css";
 
 export class PropertyCard extends Component {
-  render() {
+render() {
     if (this.props.cardType==='property') {
     return (
-        <div className='card'>
+        <div className={`card p${this.props.id}`} id={`prop_${this.props.id}`}>
 
         <div className={this.props.mortaged === true ? 'front mortaged' : 'front'}>
           <div className="cardHeader" style={{backgroundColor: this.props.group ? this.props.group: 'red'}}></div>
@@ -36,11 +36,10 @@ export class PropertyCard extends Component {
     )}
     else {
       return (
-      <div className="card cornerCard">
+      <div className={`card cornerCard p${this.props.id}`}  id={`prop_${this.props.id}`}>
         <div className = "front">
         <div className="cornerCardInterior">
         {this.props.name ? this.props.name : 'Corner Card'}
-        {/* <input type="text" value={this.props.name ? this.props.name : 'Corner Card'} onChange= {this.OnTitleChange} name='cardTitle' style={{border: 'none', background: 'transparent'}}/> */}
         </div>
         <div className="cornerCardIconContainer">
             {this.props.name === 'Jail'? <i class="fas fa-trailer fa-4x"></i> : '' }

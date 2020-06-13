@@ -2,17 +2,8 @@
 #gameBoard {
     margin: 1rem;
     padding-bottom: 5rem;
-    display: grid;
+    /* display: grid;
     gap: 0.1rem;
-  
-    /* justify-items: center; */
-  
-    /* grid-template-areas:
-      "a  b  c  d  e"
-      "p  z  z  z  f"
-      "o  z  z  z  g"
-      "n  z  z  z  h"
-      "m  l  k  j  i"; */
       grid-template-areas:
       "a  b  c  d  e  fx  gx"
       "p  z  z  z  z   z   f"
@@ -20,21 +11,100 @@
       "n  z  z  z  z   z   h"
       "nx  z  z  z  z   z  hx"
       "m  l  k  j  i  ix  jx";
-  
-    /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    /* grid-template-rows: repeat(5); 
-      grid-template-columns: repeat(5); */
     grid-template-columns: 200px 200px 200px 200px 200px;
-    /* grid-template-columns: 50px 50px 50px 50px 50px; */
-    justify-content: center;
+    justify-content: center; */
   
   }
   
-  #centerItem {
+  /* #centerItem {
     grid-area: z;
+  } */
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas: 
+    "p0 p1 p2 p3 p4 p5 p6"
+    "p21 c c c c c p7"
+    "p20 c c c c c p8"
+    "p19 c c c c c p9" 
+    "p18 c c c c c p10" 
+    "p17 p16 p15 p14 p13 p12 p11";
   }
-  #centerItem {
+  
+  .c {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas: "Chance Status ." ". Dice Chest";
+    grid-area: c;
+  }
+  
+  .Status { grid-area: Status; }
+  
+  .Dice { grid-area: Dice; }
+  
+  .Chance { grid-area: Chance; }
+  
+  .Chest { grid-area: Chest; }
+  
+  .p0 { grid-area: p0; }
+  
+  .p1 { grid-area: p1; }
+  
+  .p2 { grid-area: p2; }
+  
+  .p3 { grid-area: p3; }
+  
+  .p4 { grid-area: p4; }
+  
+  .p5 { grid-area: p5; }
+  
+  .p6 { grid-area: p6; }
+  
+  .p7 { grid-area: p7; }
+  
+  .p8 { grid-area: p8; }
+  
+  .p9 { grid-area: p9; }
+  
+  .p10 { grid-area: p10; }
+  
+  .p11 { grid-area: p11; }
+  
+  .p12 { grid-area: p12; }
+  
+  .p13 { grid-area: p13; }
+  
+  .p14 { grid-area: p14; }
+  
+  .p15 { grid-area: p15; }
+  
+  .p16 { grid-area: p16; }
+  
+  .p17 { grid-area: p17; }
+  
+  .p18 { grid-area: p18; }
+  
+  .p19 { grid-area: p19; }
+  
+  .p20 { grid-area: p20; }
+  
+  .p21 { grid-area: p21; }
+
+  /* #centerItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  } */
+  .c{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,60 +112,28 @@
     width: 100%;
     height: 100%;
   }
-
   #openBtn{
     margin-bottom: 9rem;;
   }
-  
-  /* #gameBoard:nth-child(1) {
-    grid-area: a;
+
+  .Chance,.Chest{
+    background-color: darkgrey;
+    width: 16rem;
+    height: 12em;
+    transform: rotate(280deg);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
   }
-  #gameBoard:nth-child(2) {
-    grid-area: b;
+
+  .Chance{
+    margin-left: -60rem;
+    top: -30rem;
   }
-  #gameBoard:nth-child(3) {
-    grid-area: c;
+
+  .Chest {
+    margin-left: 60rem;
+    top: 30rem;
   }
-  #gameBoard:nth-child(4) {
-    grid-area: d;
-  }
-  #gameBoard:nth-child(5) {
-    grid-area: e;
-  }
-  #gameBoard:nth-child(6) {
-    grid-area: f;
-  }
-  #gameBoard:nth-child(7) {
-    grid-area: g;
-  }
-  #gameBoard:nth-child(8) {
-    grid-area: h;
-  }
-  #gameBoard:nth-child(9) {
-    grid-area: i;
-  }
-  #gameBoard:nth-child(10) {
-    grid-area: j;
-  }
-  #gameBoard:nth-child(11) {
-    grid-area: k;
-  }
-  #gameBoard:nth-child(12) {
-    grid-area: l;
-  }
-  #gameBoard:nth-child(13) {
-    grid-area: m;
-  }
-  #gameBoard:nth-child(14) {
-    grid-area: n;
-  }
-  #gameBoard:nth-child(15) {
-    grid-area: o;
-  }
-  #gameBoard:nth-child(16) {
-    grid-area: p;
-  }
-  #gameBoard:last-child {
-    grid-area: z;
-  } */
-  
