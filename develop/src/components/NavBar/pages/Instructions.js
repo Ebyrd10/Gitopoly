@@ -3,7 +3,7 @@ import './style.css';
 
 function Instructions() {
   return (
-    <div>
+    <div  className="navTabPopOut">
       <h2> Instructions </h2>
       <div>
         <p>

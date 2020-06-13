@@ -14,11 +14,14 @@ function NavBar () {
     <>
       <Router>
         <div>
+        <h1>Welcome to Gitopoly!</h1>
+        <div id='navTabsContainer'>
           <NavTabs />
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
           <Route exact path="/instructions" component={Instructions} />
           <Route exact path="/rules" component={Rules} />
+          </div>
         </div>
       </Router>
       

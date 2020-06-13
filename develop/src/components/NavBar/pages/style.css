@@ -3,9 +3,25 @@ body {
 }
 
 h1 {
-  margin-bottom: 3rem
+  margin-bottom: 1rem
 }
 h1, h2, #list-tag {
  color: navy;
  font-family: "Lucida Console", Monaco, monospace;
+}
+
+#navTabsContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.navTabPopOut{
+  color-adjust: black;
+  background-color: rgb(190, 189, 189);
+  border: 1px solid darkgray;
+  width: 60rem;
+  border-radius: 5px;
+  margin: 2rem;
 }

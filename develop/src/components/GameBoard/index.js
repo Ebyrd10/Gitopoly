@@ -3,6 +3,7 @@ import PropertyCard from "../Property";
 import PlayerStatusScreen from "../PlayerStatusScreen"
 import Dice from '../Dice/';
 // import PlayerIcon from '../PlayerIcon'
+import PlayerStatusButton from '../PlayerStatusButton'
 import './style.css'
 
 export class GameBoard extends Component {
@@ -338,18 +339,28 @@ export class GameBoard extends Component {
             }
         ]
     }
+
   render() {
     return (
       <div id="gameBoard">
         <PlayerStatusScreen />
         {this.state.propertyArray.map((property, index) => 
-        // if ((property.type === 'property')||(property.type === 'cornerCard'))
         {if ((property.type === 'property')||(property.type === 'cornerCard'))
-        return <PropertyCard key={index} id={index} cardType = {property.type} group = {property.color} name = {property.name} value = {property.cost} ownedBy = {property.ownedBy} mortaged = {property.mortaged}/>
+        return <PropertyCard 
+        key={index} 
+        id={index} 
+        cardType = {property.type} 
+        group = {property.color} 
+        name = {property.name} 
+        value = {property.cost} 
+        ownedBy = {property.ownedBy} 
+        mortaged = {property.mortaged} 
+        rent = {property.rent}
+        />
         })}
         <div id="centerItem">
+        < PlayerStatusButton/>
          <Dice /> 
-         {/* <PlayerIcon /> */}
         </div>
       </div>
     );
