@@ -154,7 +154,9 @@
 }
 
 .card:hover {
-    transform : rotateY(180deg)
+    transform : rotateY(180deg);
+    /* this duration helps avoid the endless flip mechanical bug */
+    transition-duration: .85s;
 }
 
 .font{
