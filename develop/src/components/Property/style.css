@@ -78,7 +78,7 @@
     margin: 5px;
 }
 .cornerCard{
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
     width: 18rem;
     height: 18rem;
     display: flex;
@@ -90,7 +90,7 @@
 
 .cornerCardInterior{
     font-family: 'Montserrat Subrayada', sans-serif;
-    font-size: 3rem;
+    font-size: 2rem;
     padding: 1rem;
 }
 
@@ -170,4 +170,3 @@
     transform: rotate(-45deg);
     font-size: 4rem;
 }
-

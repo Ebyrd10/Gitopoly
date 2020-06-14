@@ -145,6 +145,12 @@ export class GameBoard extends Component {
             },
             {
                 
+                name: "Go To Jail",
+                type: "cornerCard",
+                "corner": true
+            },
+            {
+                
                 name: "Ventura Avenue",
                 type: "property",
                 cost: 260,
@@ -152,12 +158,6 @@ export class GameBoard extends Component {
                 rent: [22,110,330,800,975,1150],
                 group: 'placeholdergroup',
                 house: 150
-            },
-            {
-                
-                name: "Go To Jail",
-                type: "cornerCard",
-                "corner": true
             },
             {
                 
@@ -202,10 +202,24 @@ export class GameBoard extends Component {
         })}
         {/* <div id="centerItem"> */}
         <div className="c">
-        <div className='Chest'>Community Chest</div>
+        <div className='Chest card'>
+         <div className='front'>
+          <span className='chestSpan'>Community Chest</span>
+        </div>
+         <div className='back'>
+          <span className="sidewaysGitopoly">Gitopoly!</span>
+        </div>
+         </div>
         < PlayerStatusButton className="Status"/>
          <Dice className="Dice"/> 
-         <div className='Chance'>Chance Card</div>
+         <div className='Chance card'>
+         <div className='front'>
+          <span className='chanceSpan'>Chance</span>
+        </div>
+         <div className='back'>
+          <span className="sidewaysGitopoly">Gitopoly!</span>
+        </div>
+         </div>
         </div>
       </div>
     );

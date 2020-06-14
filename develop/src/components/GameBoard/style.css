@@ -137,3 +137,8 @@
     margin-left: 60rem;
     top: 30rem;
   }
+
+  .chestSpan, .chanceSpan{
+    width: 75%;
+    font-family: 'Montserrat Subrayada', sans-serif;
+  }
