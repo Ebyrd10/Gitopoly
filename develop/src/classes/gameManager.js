@@ -1,25 +1,28 @@
 import Player from "./player";
 import Property from "./property";
 import Space from "./space";
+import React from "react";
 
 
-class GameManager{
-    turnArray = [];
+class GameManager extends ReactComponent{
+    state ={
+        turnArray = [],
+        playerArray=[],
+        bankruptArray = [],
+        //No compromises! No free parking money!
 
-    playerArray=[];
-    bankruptArray = [];
-    //No compromises! No free parking money!
+        currentTurn, //This holds the player whose turn it is
+        currentPlayerInput,//This holds the player who is currently being prompted. It will usually be the same as currentTurn.
+        startingPosition, //TODO: Set this to Go
+        //Display the player color accordingly
 
-    currentTurn; //This holds the player whose turn it is
-    currentPlayerInput;//This holds the player who is currently being prompted. It will usually be the same as currentTurn.
-    startingPosition; //TODO: Set this to Go
-    //Display the player color accordingly
+        doubles = false,
 
-    doubles = false;
-
-    //The following booleans control which elements should be displayed by React
-    expectingRoll = false;
-    winScreen = false;
+        //The following booleans control which elements should be displayed by React
+        expectingRoll = false,
+        winScreen = false
+    }
+    
     
     AddPlayer(newPlayerObj) //This takes a submission of a player's data as input
     {
@@ -255,10 +258,11 @@ class GameManager{
         return property.ownedBy;
     }
 
+    
     propertyArray=[
        
         {
-            id:0
+            id: 0,
             name: "Go",
             type: "go",
             "corner": true
@@ -584,7 +588,7 @@ class GameManager{
             "rent": [50,200,600,1400,1700,2000],
             "group": [8, 2, 2],
             house: 200,
-        }*/
+        }
     ]
 }
 export default GameManager;
