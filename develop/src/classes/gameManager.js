@@ -14,7 +14,6 @@ export class gameManager extends Component {
 
         currentTurn : 0, //This holds the player whose turn it is
         currentPlayerInput: 0,//This holds the player who is currently being prompted. It will usually be the same as currentTurn.
-        startingPosition : 0, //TODO: Set this to Go
         //Display the player color accordingly
 
         doubles : false,
@@ -74,7 +73,8 @@ export class gameManager extends Component {
 
                 name: "Jail",
                 type: "cornerCard",
-                "corner": true
+                "corner": true,
+                type: "jail"
             },
             {
                             
@@ -194,9 +194,15 @@ export class gameManager extends Component {
                 type: "chance"
             }
         ],
-        spaceObjArray : []
+        startingPosition : this.propertyArray[0], //TODO: Set this to Go
+        jail : this.propertyArray.find(this.CheckJail)
     }
     
+    CheckJail = (property) =>
+    {
+        return property.type === "jail";
+    }
+
     // ComponentDidMount()
     // {
              
@@ -204,7 +210,7 @@ export class gameManager extends Component {
     
     AddPlayer = (newPlayerObj) => //This takes a submission of a player's data as input
     {
-        const newPlayer = new Player(newPlayerObj.name,startingPosition,newPlayerObj.color,newPlayerObj.icon);
+        const newPlayer = new Player(newPlayerObj.name,this.startingPosition,newPlayerObj.color,newPlayerObj.icon);
         this.playerArray.push(newPlayer);
         //TODO: Update display state
     }
@@ -292,8 +298,8 @@ export class gameManager extends Component {
         {
             if(this.currentTurn.doubleCounter >= 3)
             {
-                this.currentTurn.SendToJail(jail); //TODO: Create a "Jail" object
-                endTurn();
+                this.currentTurn.SendToJail(this.jail); //TODO: Create a "Jail" object
+                this.endTurn();
             }
         }
     }
@@ -325,9 +331,9 @@ export class gameManager extends Component {
         {
             newPos = newPos - this.playerArray.length;
         }
-        let newSpace = this.propertyArray.find(id===newPos);
+        let newSpace = this.propertyArray.find(this.id===newPos);
         player.position = newSpace;
-        this.ExecuteSpace(player,space);
+        this.ExecuteSpace(player,newSpace);
     }
 
     MovePlayerToSpace = (player, space) => {
@@ -350,9 +356,9 @@ export class gameManager extends Component {
 
     playerBankrupt = (player) => {
         // GET THE INDEX OF THE BANKRUPT PLAYER FROM THE TURN ARRAY
-        bankruptPlayerIndex=this.turnArray.indexOf(player);
+        this.bankruptPlayerIndex=this.turnArray.indexOf(player);
         // SLICE THEM OUT OF THE ARRAY
-        this.turnArray=this.turnArray.slice(0, bankruptPlayerIndex-1).concat(this.turnArray.slice(bankruptPlayerIndex, this.turnArray.length))
+        this.turnArray=this.turnArray.slice(0, this.bankruptPlayerIndex-1).concat(this.turnArray.slice(this.bankruptPlayerIndex, this.turnArray.length))
     }
     
     canBuy = (player,amount) => {
@@ -365,9 +371,9 @@ export class gameManager extends Component {
     }
     // METHOD CALLED AT BEGINNING TO CREATE PLAYERS AND ADD THEM TO STATE
     createPlayer = (name, playerColor,playerIcon) => {
-        player = {
+        let player = {
             name : name,
-            position : startingPosition,
+            position : this.startingPosition,
             color : playerColor,
             icon : playerIcon,
             balance : 1500,
@@ -378,8 +384,6 @@ export class gameManager extends Component {
         }
         
     }
-    
-    
     
     addToPlayerBalance = (player,amount) => {
         player.balance += amount;
@@ -403,7 +407,7 @@ export class gameManager extends Component {
     // PLAYER.INJAIL IS TRUE AND PLAYER POSITION MOVED
     playerGoesToJail = (player) => {
         player.inJail = true;
-        player.position = jailIndex;
+        player.position = this.jail;
     }
     
     addHouseToProperty = () => {
@@ -411,20 +415,20 @@ export class gameManager extends Component {
     }
 
     mortgageProperty = (property) => {
-        property.mortgaged=True;
+        property.mortgaged = true;
     }
 
     
     unmortgageProperty = (property) => {
-        property.mortgaged=False;
+        property.mortgaged = false;
     }
 
     addHousesToProperty = (number) => { 
         this.houses+=number;
     }
 
-    getRent = () => {
-        return rent[this.houses];
+    getRent = (property) => {
+        return property.rent[this.houses];
     }
 
     getPropertyValue = (property) => {
