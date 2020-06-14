@@ -36,7 +36,7 @@ render() {
     )}
     else {
       return (
-      <div className={`card cornerCard p${this.props.id}`}  id={`prop_${this.props.id}`}>
+      <div className={`card cornerCard p${this.props.id}`}  id={`prop_${this.props.id}`}>  
         <div className = "front">
         <div className="cornerCardInterior">
         {this.props.name ? this.props.name : 'Corner Card'}
