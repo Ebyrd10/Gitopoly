@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Player from "./player";
 // import Property from "./property";
 // import Space from "./space";
-import GameBoard from './components/GameBoard'
+import GameBoard from '../components/GameBoard';
 
 export class gameManager extends Component {
     state ={
@@ -442,7 +442,7 @@ export class gameManager extends Component {
     render() {
         return (
             <>
-            <GameBoard />
+            {/* <GameBoard /> */}
             </>
         )
     }
