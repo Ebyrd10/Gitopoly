@@ -49,6 +49,10 @@ class Player{
         this.inJail = false;
     }
 
+    loseGame(){
+        this.inJail = false;
+        this.position = null;
+    }
 }
 
 export default Player;
