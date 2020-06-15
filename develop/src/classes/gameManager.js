@@ -195,7 +195,12 @@ export class gameManager extends Component {
             }
         ],
         startingPosition : this.propertyArray[0], //TODO: Set this to Go
-        jail : this.propertyArray.find(this.CheckJail)
+        jail : this.propertyArray.find(this.CheckJail),
+        dummyPlayers: [new Player("William", this.propertyArray[18], color.LightBlue, "https://cdn.hswstatic.com/gif/pug.jpg"),
+        new Player("Ethan", this.propertyArray[3], color.Maroon, "https://cdn.akc.org/content/article-body-image/lab_puppy_dog_pictures.jpg"),
+        new Player("Noah",this.propertyArray[18],color.Lime,"https://i.insider.com/5df126b679d7570ad2044f3e?width=1100&format=jpeg&auto=webp"),
+        new Player("Mason",this.propertyArray[0],color.Purple,"https://www.washingtonpost.com/resizer/uwlkeOwC_3JqSUXeH8ZP81cHx3I=/arc-anglerfish-washpost-prod-washpost/public/HB4AT3D3IMI6TMPTWIZ74WAR54.jpg")
+        ]
     }
     
     CheckJail = (property) =>
@@ -203,10 +208,17 @@ export class gameManager extends Component {
         return property.type === "jail";
     }
 
-    // ComponentDidMount()
-    // {
-             
-    // }
+    ComponentDidMount()
+    {
+        this.setState(this.turnArray = this.dummyPlayers);
+        this.setState(this.playerArray = this.dummyPlayers);
+        this.playerArray[1].AddProperty(this.propertyArray[2]);
+        this.playerArray[1].AddProperty(this.propertyArray[3]);
+        this.playerArray[0].AddProperty(this.propertyArray[6]);
+        this.playerArray[0].AddProperty(this.propertyArray[18]);
+        this.playerArray[0].AddProperty(this.propertyArray[10]);
+        this.setState(this.propertyArray[18].mortgaged = true);
+    }
     
     AddPlayer = (newPlayerObj) => //This takes a submission of a player's data as input
     {
@@ -411,7 +423,7 @@ export class gameManager extends Component {
     }
     
     addHouseToProperty = () => {
-
+        
     }
 
     mortgageProperty = (property) => {
