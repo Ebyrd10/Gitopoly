@@ -211,7 +211,13 @@ export class gameManager extends Component {
     ComponentDidMount()
     {
         this.setState(this.turnArray = this.dummyPlayers);
-        this.setState(this.playerArray = this.dummyPlayers);         
+        this.setState(this.playerArray = this.dummyPlayers);
+        this.playerArray[1].AddProperty(this.propertyArray[2]);
+        this.playerArray[1].AddProperty(this.propertyArray[3]);
+        this.playerArray[0].AddProperty(this.propertyArray[6]);
+        this.playerArray[0].AddProperty(this.propertyArray[18]);
+        this.playerArray[0].AddProperty(this.propertyArray[10]);
+        this.setState(this.propertyArray[18].mortgaged = true);
     }
     
     AddPlayer = (newPlayerObj) => //This takes a submission of a player's data as input
