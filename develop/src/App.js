@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GameManager, { gameManager } from "./classes/gameManager";
+// import GameManager, { gameManager } from "./classes/gameManager";
 // import Player from "./classes/player";
 // import Space from "./classes/space";
 // import Property from "./classes/property";
@@ -16,7 +16,7 @@ function App() {
       <NavBar/>
       <br/>
       <GameBoard />
-      < gameManager />
+      {/* < gameManager /> */}
     </>
   );
 }
