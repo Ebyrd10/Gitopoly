@@ -6,7 +6,8 @@ h1 {
   margin-bottom: 1rem
 }
 h1, h2, #list-tag {
- color: black;
+ color: navy;
+ font-family: "Lucida Console", Monaco, monospace;
 }
 
 #navTabsContainer{
