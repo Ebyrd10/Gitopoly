@@ -3,7 +3,7 @@ import './style.css';
 
 function About() {
   return (
-    <div>
+    <div className="navTabPopOut">
       <h2>About Gitopoly</h2>
       <h4>
         A full <span id="list-tag"> MERN </span> stack web application revolving around a board game where
